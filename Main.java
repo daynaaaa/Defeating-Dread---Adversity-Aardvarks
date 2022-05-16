@@ -7,6 +7,7 @@ Desc:
 Variables:
 
 */
-public class Main{
+
+public class Main {
 
 }
