@@ -10,6 +10,6 @@
  *    [author] - [modification] 
  *    
  */
-public class Main {
-
+public class Menu {
+   //test
 }
