@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Monster {
     //damage
     final int damage;
@@ -30,5 +32,18 @@ public class Monster {
      */
     public void decrease(int amt){
         health-=amt;
+    }
+
+    /**
+     * fight the monster
+     *
+     * @param tool the tool being used
+     * @return if the monster is defeated
+     */
+    public boolean Fight(Tools tool) {
+        System.out.println("fighting:\n");
+        this.decrease(tool.damage);
+        if(health>0) return false;
+        return true;
     }
 }
