@@ -37,7 +37,7 @@ public class Main extends JPanel{
        window.getContentPane().add(canvas);
        window.setVisible(true);
 */
-		runMenu();
-      c = getC();
+		//runMenu();
+      //c = getC();
 	}
 }
