@@ -4,10 +4,9 @@
  * Date: May 16, 2022
  * Desc: "Main" class that runs the game
  *
- * Variables:
- *
  * Version #1 May 16 - May 20 - [2.5 hrs]:
  *    Danya - implemented if statements to decide what screen to show next
+ *    Also made the quit button work
  *    
  */
 import java.util.*;
@@ -16,14 +15,14 @@ import javax.swing.*;
 import java.awt.*;
 public class Main extends JPanel{
    /**the user's choice*/
-	public char c;
+	public int c;
    /**the current screen to be displayed*/
    public static JPanel current;
    /**the current frame*/
    public static JFrame frame;
    //public static Graphics2D graphics;
    /**
-     * Initialize the JFrame
+     * initialize the frame
    */
    private static void initializeFrame() {
       frame = new JFrame();
@@ -36,8 +35,11 @@ public class Main extends JPanel{
       frame.setLocationRelativeTo(null);
       frame.setVisible(true);
    }
+   /**
+     * Run the game
+     */
    public static void main(String[] args)
-  {
+   {
 
       Main m = new Main();
       frame = new JFrame();
@@ -49,26 +51,27 @@ public class Main extends JPanel{
       //panel.setLayout(new GridLayout(0, 1));
       
       /*
-      SplashScreen splash = new SplashScreen();
-      frame.add (splash);
-      splash.play();
-      current = splash;*/
-      //System.out.println(frame.isVisible());
-      while (m2.getC!=3) {
+      SplashScreen s = new SplashScreen();
+      frame.add (s);
+      s.play();
+      current = s;*/
+      m.c = 0;
+      while (m.c!=3) {
             //frame.remove(current);
             Menu m2 = new Menu();
             frame.add(m2);
             frame.setBackground(Color.WHITE);
             current = m2;
-            if(m2.getC() == 1){
-                           }
-            else if(m2.getC() == 2){
+            m.c = m2.getC();
+            if(m.c == 1){
+               
             }
-            else if(m2.getC() == 3){
-
-               break;
+            else if(m.c == 2){
+               
             }
-            //frame.setVisible (false);
+            else if(m.c == 3){
+               System.exit(0);
+            }
       }
 	}
 }

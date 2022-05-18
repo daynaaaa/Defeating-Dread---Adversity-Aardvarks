@@ -4,8 +4,6 @@
  * Date: May 16, 2022
  * Desc: "Menu" class for the menu where the user can choose to play the game, go to instructions, or quit the game
  *
- * Variables:
- *
  * Version #1 May 16 - May 20 - [3 hr]:
  *    Danya - added mouse listener to keep track of where the user clicks
  *    figured out the points that buttons would need to be in, and implemented the buttons
@@ -18,11 +16,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 public class Menu extends JPanel{
-	public int c;
+   /**the user's choice*/
+	public static int c;
+   /**the x value of the point the user clicks on*/
    public int x;
+   /**the y value of the point the user clicks on*/
    public int y;
+   /**
+     * Constructor for the Menu class
+     * Implements the mouse listener
+     */
 	public Menu() {
-		c = -1;
       addMouseListener (new MouseAdapter(){
             public void mousePressed (MouseEvent e) {
                x = e.getX();
@@ -34,32 +38,20 @@ public class Menu extends JPanel{
                   else if(y>=240&&y<=320)c = 2;
                   else if(y>=330&&y<=410)c = 3;
                }
-               System.out.println(c);
                repaint();
             }
       });
 	}
-	public int getC() {
-		return c;
-	}
-   /*public void mousePressed(MouseEvent e)
-   {
-
-      x = e.getX();
-      y = e.getY();
-      System.out.println(x+" "+y);
-      //if buttons stuff
-      b = true;
-      repaint();
-   }
-   /**not used*
-   public void mouseClicked(MouseEvent e) {}
-   public void mouseReleased(MouseEvent e) {}
-   public void mouseEntered(MouseEvent e) {}
-   public void mouseExited(MouseEvent e) {}
-   */
    /**
-     * 
+     * Get the choice
+     *
+     * @return the int value of c
+     */
+	public int getC() {
+		return this.c;
+	}
+   /**
+     * Draw the graphics
      *
      * @param g the graphics to be drawn
      */
@@ -84,8 +76,5 @@ public class Menu extends JPanel{
       g.drawString("quit", 330, 370);
       //(string, x, y);
       //if(b)g.fillOval(x - 1, y - 1, 3, 3);
-
-      
-
    }
 }
