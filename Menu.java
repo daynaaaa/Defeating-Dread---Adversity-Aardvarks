@@ -6,8 +6,10 @@
  *
  * Variables:
  *
- * Version #1 May 16 - May 20 - [2 hr]:
- *    Danya - [modification] 
+ * Version #1 May 16 - May 20 - [3 hr]:
+ *    Danya - added mouse listener to keep track of where the user clicks
+ *    figured out the points that buttons would need to be in, and implemented the buttons
+ *    added text
  *    
  */
 import java.util.*;
@@ -16,24 +18,28 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 public class Menu extends JPanel{
-	public char c;
+	public int c;
    public int x;
    public int y;
-   public boolean b = false;
 	public Menu() {
-		c = '0';
+		c = -1;
       addMouseListener (new MouseAdapter(){
             public void mousePressed (MouseEvent e) {
                x = e.getX();
                y = e.getY();
-               System.out.println(x+" "+y);
+               //System.out.println(x+" "+y);
                //if buttons stuff
-               b = true;
+               if(x>=250&&x <=550){
+                  if(y>=150&&y<=230)c = 1;
+                  else if(y>=240&&y<=320)c = 2;
+                  else if(y>=330&&y<=410)c = 3;
+               }
+               System.out.println(c);
                repaint();
             }
       });
 	}
-	public char getC() {
+	public int getC() {
 		return c;
 	}
    /*public void mousePressed(MouseEvent e)
@@ -61,36 +67,25 @@ public class Menu extends JPanel{
    public void paintComponent(Graphics g)
    {
       super.paintComponent(g);
-      setBackground(Color.WHITE);
-      if(b)g.fillOval(x - 1, y - 1, 3, 3);
+      Color backgroundColour = new Color(46, 23, 110);
+      setBackground(backgroundColour);
+      g.setColor(Color.BLACK);
+      g.fillRect(250, 150, 300, 80);
+      g.fillRect(250, 240, 300, 80);
+      g.fillRect(250, 330, 300, 80);
+      g.setColor(Color.WHITE);
       g.setFont(new Font("Serif", Font.BOLD, 30));
       g.drawString("DEFEATING DREAD", 250, 30);
       g.setFont(new Font("SansSerif", Font.BOLD, 20));
-      g.drawString("A game brought to you by:", 250, 70);
-      g.drawString("Adversity Aardvarks", 250, 100);
+      g.drawString("A game brought to you by:", 270, 70);
+      g.drawString("Adversity Aardvarks", 290, 100);
+      g.drawString("play game", 330, 190);
+      g.drawString("instructions", 330, 280);
+      g.drawString("quit", 330, 370);
       //(string, x, y);
+      //if(b)g.fillOval(x - 1, y - 1, 3, 3);
+
+      
 
    }
-	public static void runMenu() {
-		Menu m = new Menu();
-      Scanner in = new Scanner(System.in);
-		System.out.println("DEFEATING DREAD");
-		System.out.println("A game brought to you by:\nAdversity Aardvarks");
-		System.out.println("Play Game\nInstructions\nQuit");
-		while(true) {
-			try {
-				m.c = in.next().charAt(0);
-				if(m.c < 49 || m.c > 51){
-					throw new IllegalArgumentException();
-				}
-            else break;
-			} 
-			catch (IllegalArgumentException e) {
-				JOptionPane.showMessageDialog(null, "Please enter an integer between 1-3");
-
-			}
-		}
-		
-	}
-
 }

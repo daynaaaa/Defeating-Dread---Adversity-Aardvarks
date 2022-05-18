@@ -6,8 +6,8 @@
  *
  * Variables:
  *
- * Version #1 May 16 - May 20 - [1.5 hrs]:
- *    Danya - [modification] 
+ * Version #1 May 16 - May 20 - [2.5 hrs]:
+ *    Danya - implemented if statements to decide what screen to show next
  *    
  */
 import java.util.*;
@@ -54,14 +54,20 @@ public class Main extends JPanel{
       splash.play();
       current = splash;*/
       //System.out.println(frame.isVisible());
-      while (true) {
+      while (m2.getC!=3) {
             //frame.remove(current);
             Menu m2 = new Menu();
             frame.add(m2);
             frame.setBackground(Color.WHITE);
             current = m2;
-            
-            break;
+            if(m2.getC() == 1){
+                           }
+            else if(m2.getC() == 2){
+            }
+            else if(m2.getC() == 3){
+
+               break;
+            }
             //frame.setVisible (false);
       }
 	}
