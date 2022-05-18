@@ -14,14 +14,44 @@ import java.util.*;
 import java.io.*;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 public class Menu extends JPanel{
 	public char c;
+   public int x;
+   public int y;
+   public boolean b = false;
 	public Menu() {
 		c = '0';
+      addMouseListener (new MouseAdapter(){
+            public void mousePressed (MouseEvent e) {
+               x = e.getX();
+               y = e.getY();
+               System.out.println(x+" "+y);
+               //if buttons stuff
+               b = true;
+               repaint();
+            }
+      });
 	}
 	public char getC() {
 		return c;
 	}
+   /*public void mousePressed(MouseEvent e)
+   {
+
+      x = e.getX();
+      y = e.getY();
+      System.out.println(x+" "+y);
+      //if buttons stuff
+      b = true;
+      repaint();
+   }
+   /**not used*
+   public void mouseClicked(MouseEvent e) {}
+   public void mouseReleased(MouseEvent e) {}
+   public void mouseEntered(MouseEvent e) {}
+   public void mouseExited(MouseEvent e) {}
+   */
    /**
      * 
      *
@@ -31,11 +61,15 @@ public class Menu extends JPanel{
    public void paintComponent(Graphics g)
    {
       super.paintComponent(g);
-      int x0 = 40;
-      int y0 = 40;
-      g.setColor(Color.BLACK);
-      g.drawRect(x0 - 15, y0, 30, 20);
-      g.drawOval(x0 - 10, y0 - 20, 20, 20);
+      setBackground(Color.WHITE);
+      if(b)g.fillOval(x - 1, y - 1, 3, 3);
+      g.setFont(new Font("Serif", Font.BOLD, 30));
+      g.drawString("DEFEATING DREAD", 250, 30);
+      g.setFont(new Font("SansSerif", Font.BOLD, 20));
+      g.drawString("A game brought to you by:", 250, 70);
+      g.drawString("Adversity Aardvarks", 250, 100);
+      //(string, x, y);
+
    }
 	public static void runMenu() {
 		Menu m = new Menu();
