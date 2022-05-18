@@ -1,19 +1,9 @@
-import java.util.ArrayList;
 
 public class Tools {
     //String with info/task for tool
-    String name, info, task;
+    private String name, info, task;
     //how much damage
-    int damage;
-
-    /**
-     * temp constructor
-     */
-    public Tools(){
-        info="This is a tool.";
-        task="To use this tool, do this";
-        damage=5;
-    }
+    private int damage;
 
     /**
      * constructor with parameters
@@ -31,6 +21,7 @@ public class Tools {
     public String getName(){return name;}
     public String getInfo(){return info;}
     public String getTask(){return task;}
+    public int getDamage(){return damage;}
 
 
 

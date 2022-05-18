@@ -2,17 +2,9 @@ import java.util.ArrayList;
 
 public class Monster {
     //damage
-    final int damage;
+    private final int damage;
     //starting health
-    int health;
-
-    /**
-     * temporary constructor
-     */
-    public Monster(){
-        damage=5;
-        health=100;
-    }
+    private int health;
 
     /**
      * constructor with parameters
@@ -41,8 +33,8 @@ public class Monster {
      * @return if the monster is defeated
      */
     public boolean Fight(Tools tool) {
-        System.out.println("fighting:\n");
-        this.decrease(tool.damage);
+        System.out.println("\nfighting:");
+        this.decrease(tool.getDamage());
         if(health>0) return false;
         return true;
     }

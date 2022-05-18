@@ -1,22 +1,24 @@
 import java.util.ArrayList;
 
-public class Level2 extends Level{
+public class Level2 {
     //monster
     Monster monster;
     //all tools - made from constructor
     ArrayList <Tools> allTools;
     //chosen tools - made from collectTools method
     ArrayList <Tools> chosenTools;
+    //Text message
+    ArrayList <String> message;
 
     /**
      * constructor
      *
-     * @param textP calls super with text
+     * @param messageP calls super with text
      * @param allToolsP all tools stored
      * @param monsterP chosen tools stored
      */
-    public Level2(ArrayList<String> textP, ArrayList<Tools> allToolsP, Monster monsterP) {
-        super(textP);
+    public Level2(ArrayList<String> messageP, ArrayList<Tools> allToolsP, Monster monsterP) {
+        message=messageP;
         allTools=allToolsP;
         chosenTools=collectTools();
         monster=monsterP;
