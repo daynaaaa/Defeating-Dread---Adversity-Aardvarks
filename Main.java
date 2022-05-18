@@ -6,38 +6,63 @@
  *
  * Variables:
  *
- * Version #1 May 16 - May 20 - [30 mins]:
- *    [author] - [modification] 
+ * Version #1 May 16 - May 20 - [1.5 hrs]:
+ *    Danya - [modification] 
  *    
  */
- import java.util.*;
+import java.util.*;
 import java.io.*;
 import javax.swing.*;
 import java.awt.*;
 public class Main extends JPanel{
-	public static char c;
-   public void paintComponent(Graphics g)
+   /**the user's choice*/
+	public char c;
+   /**the current screen to be displayed*/
+   public static JPanel current;
+   /**the current frame*/
+   public static JFrame frame;
+   //public static Graphics2D graphics;
+   /**
+     * Initialize the JFrame
+   */
+   private static void initializeFrame() {
+      frame = new JFrame();
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      frame.setTitle("Defeating Dread");
+      frame.pack();
+      frame.setSize(800, 500);
+      //frame.setBounds(0, 0, 800, 500);
+      frame.setResizable(false);
+      frame.setLocationRelativeTo(null);
+      frame.setVisible(true);
+   }
+   public static void main(String[] args)
   {
-       super.paintComponent(g);  //canvas
-       int w = getWidth();
-       int h = getHeight();
-       g.setColor(Color.RED);
-       g.drawRect(w/4, h/4, w/2, h/2);  //rectangle is proportionate to canvas
-       g.setColor(Color.BLUE);
-       g.setFont(new Font("Serif", Font.PLAIN, 18));
-       g.drawString("SUCCESS!", w/4 + 15, h/2 + 5);
-  }
-	public static void main(String[]args) {
-		Main m = new Main();
-      /*JFrame window = new JFrame("Drawings");
-       window.setBounds(100, 100, 300, 200);
-       window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       JPanel canvas = new Main();
-       canvas.setBackground(Color.WHITE);
-       window.getContentPane().add(canvas);
-       window.setVisible(true);
-*/
-		//runMenu();
-      //c = getC();
+
+      Main m = new Main();
+      frame = new JFrame();
+      SwingUtilities.invokeLater(Main::initializeFrame);
+      frame.setVisible(true);
+      //JPanel panel = new JPanel();
+      //panel.setBackground(Color.WHITE);
+      //panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      //panel.setLayout(new GridLayout(0, 1));
+      
+      /*
+      SplashScreen splash = new SplashScreen();
+      frame.add (splash);
+      splash.play();
+      current = splash;*/
+      //System.out.println(frame.isVisible());
+      while (true) {
+            //frame.remove(current);
+            Menu m2 = new Menu();
+            frame.add(m2);
+            frame.setBackground(Color.WHITE);
+            current = m2;
+            
+            break;
+            //frame.setVisible (false);
+      }
 	}
 }
