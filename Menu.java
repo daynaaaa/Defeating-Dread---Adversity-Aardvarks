@@ -66,10 +66,10 @@ public class Menu extends JPanel{
       g.fillRect(250, 240, 300, 80);
       g.fillRect(250, 330, 300, 80);
       g.setColor(Color.WHITE);
-      g.setFont(new Font("Serif", Font.BOLD, 30));
+      g.setFont(new Font("Courier", Font.BOLD, 33));
       g.drawString("DEFEATING DREAD", 250, 30);
-      g.setFont(new Font("SansSerif", Font.BOLD, 20));
-      g.drawString("A game brought to you by:", 270, 70);
+      g.setFont(new Font("Courier", Font.BOLD, 20));
+      g.drawString("A game brought to you by:", 250, 70);
       g.drawString("Adversity Aardvarks", 290, 100);
       g.drawString("play game", 330, 190);
       g.drawString("instructions", 330, 280);
