@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Level2 {
-    //monster
+    /**monster*/
     Monster monster;
     //all tools - made from constructor
     ArrayList <Tools> allTools;
