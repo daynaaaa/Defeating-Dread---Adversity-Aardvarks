@@ -1,4 +1,13 @@
-import java.util.ArrayList;
+/**
+ * Authors: Danya C, Mya E, Sulagna N
+ * Teacher: Ms. Krasteva
+ * Date: May 16, 2022
+ * Desc: "Monster" class that creates a monster with parameters
+ *
+ * Version #1 May 16 - May 20 - [0.5 hrs]:
+ *    Mya - created preliminary Monster class with some methods
+ *
+ */
 
 public class Monster {
     //damage

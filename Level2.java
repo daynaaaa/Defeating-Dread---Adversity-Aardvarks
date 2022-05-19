@@ -1,13 +1,34 @@
+/**
+ * Authors: Danya C, Mya E, Sulagna N
+ * Teacher: Ms. Krasteva
+ * Date: May 16, 2022
+ * Desc: "Level2" class that will run the second level when called
+ *
+ * Version #1 May 16 - May 20 - [0.5 hrs]:
+ *    Mya - created preliminary Level2 class with some methods
+ *    Does not draw anything
+ *    Calls Tools(String, String, String, int), Monster(int, int), and Talk(ArrayList <String>)
+ *
+ */
+
 import java.util.ArrayList;
 
 public class Level2 {
-    //monster
+    /**
+     * monster
+     */
     Monster monster;
-    //all tools - made from constructor
+    /**
+     * all tools - made from constructor
+     */
     ArrayList <Tools> allTools;
-    //chosen tools - made from collectTools method
+    /**
+     * chosen tools - made from collectTools method
+     */
     ArrayList <Tools> chosenTools;
-    //Text message
+    /**
+     * Text message
+     */
     ArrayList <String> message;
 
     /**
@@ -22,7 +43,7 @@ public class Level2 {
         allTools=allToolsP;
         chosenTools=collectTools();
         monster=monsterP;
-        monster.Fight(chosenTools.get(0));
+        monster.fight(chosenTools.get(0));
     }
 
     /**

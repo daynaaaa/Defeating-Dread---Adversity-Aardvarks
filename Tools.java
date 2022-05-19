@@ -1,8 +1,24 @@
+/**
+ * Authors: Danya C, Mya E, Sulagna N
+ * Teacher: Ms. Krasteva
+ * Date: May 16, 2022
+ * Desc: "Tools" class that creates tools with parameters, can make/get values
+ *
+ * Version #1 May 16 - May 20 - [0.5 hrs]:
+ *    Mya - created preliminary Tools class with some methods
+ *
+ */
 
 public class Tools {
-    //String with info/task for tool
+    /**
+     * name holds the tool name
+     * info holds the tool information
+     * task holds the task that needs to be done to use
+     */
     private String name, info, task;
-    //how much damage
+    /**
+     * how much damage the weapon does
+     */
     private int damage;
 
     /**
