@@ -41,7 +41,7 @@ public class Monster {
      * @param tool the tool being used
      * @return true if the monster is defeated
      */
-    public boolean fight(Tools tool) {
+    public boolean fight(Tool tool) {
         System.out.println("\nfighting:");
         this.decrease(tool.getDamage());
         return health<=0;

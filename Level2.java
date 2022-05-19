@@ -21,11 +21,11 @@ public class Level2 {
     /**
      * all tools - made from constructor
      */
-    ArrayList <Tools> allTools;
+    ArrayList <Tool> allTools;
     /**
      * chosen tools - made from collectTools method
      */
-    ArrayList <Tools> chosenTools;
+    ArrayList <Tool> chosenTools;
     /**
      * Text message
      */
@@ -38,7 +38,7 @@ public class Level2 {
      * @param allToolsP all tools stored
      * @param monsterP chosen tools stored
      */
-    public Level2(ArrayList<String> messageP, ArrayList<Tools> allToolsP, Monster monsterP) {
+    public Level2(ArrayList<String> messageP, ArrayList<Tool> allToolsP, Monster monsterP) {
         message=messageP;
         allTools=allToolsP;
         chosenTools=collectTools();
@@ -52,9 +52,9 @@ public class Level2 {
      *
      * @return the three tools needed for the next step
      */
-    public ArrayList<Tools> collectTools() {
+    public ArrayList<Tool> collectTools() {
         System.out.println("collecting tools:\n");
-        ArrayList<Tools> collected = new ArrayList<>();
+        ArrayList<Tool> collected = new ArrayList<>();
         collected.add(allTools.remove(0));
         return collected;
     }
