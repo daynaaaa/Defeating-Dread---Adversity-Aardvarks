@@ -1,10 +1,10 @@
 import java.util.*;
 
-public class DeficienciesRoom {
+public class LevelOne {
 
 	private ArrayList<String> lesson;
 
-	public DeficienciesRoom() {
+	public LevelOne() {
 		lesson = new ArrayList<String>();
 		fillArrayList();
 	}
