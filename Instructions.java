@@ -32,7 +32,6 @@ public class Instructions extends JPanel {
             public void mousePressed (MouseEvent e) {
                 x = e.getX();
                 y = e.getY();
-                //System.out.println(x+" "+y);
                 //if buttons stuff
                 if(x>=250&&x <=550&&y>=150&&y<=230) pressed=true;
                 repaint();
@@ -42,11 +41,12 @@ public class Instructions extends JPanel {
     /**
      * Get the choice
      *
-     * @return the int value of c
+     * @return the boolean value of pressed
      */
     public boolean getPressed() {
         return pressed;
     }
+
     /**
      * Draw the graphics
      *
@@ -56,13 +56,13 @@ public class Instructions extends JPanel {
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
-        Color backgroundColour = new Color(46, 23, 110);
+        Color backgroundColour = new Color(255, 62, 158);
         setBackground(backgroundColour);
         g.setColor(Color.BLACK);
         g.fillRect(250, 150, 300, 80);
         g.setColor(Color.WHITE);
         g.setFont(new Font("Serif", Font.BOLD, 30));
-        g.drawString("instructions", 250, 30);
+        g.drawString("instructions", 150, 30);
         g.setFont(new Font("SansSerif", Font.BOLD, 20));
         g.drawString("back", 330, 190);
         //(string, x, y);
