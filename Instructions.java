@@ -18,11 +18,11 @@ public class Instructions extends JPanel {
     /**
      * if the back button is pressed
      */
-    boolean pressed =false;
+    private boolean pressed =false;
     /**the x value of the point the user clicks on*/
-    public int x;
+    private int x;
     /**the y value of the point the user clicks on*/
-    public int y;
+    private int y;
     /**
      * Constructor for the Menu class
      * Implements the mouse listener
@@ -39,14 +39,14 @@ public class Instructions extends JPanel {
         });
     }
     /**
-     * Get the choice
-     *
+     * exit when the back button is pressed
      * @return the boolean value of pressed
      */
-    public void pressed() {
+    public boolean pressed() {
         revalidate();
         repaint();
         while (!pressed);
+        return pressed;
     }
 
     /**

@@ -17,11 +17,11 @@ import java.awt.*;
 import java.awt.event.*;
 public class Menu extends JPanel{
    /**the user's choice*/
-	public static int c;
+	private static int c;
    /**the x value of the point the user clicks on*/
-   public int x;
+   private int x;
    /**the y value of the point the user clicks on*/
-   public int y;
+   private int y;
    /**
      * Constructor for the Menu class
      * Implements the mouse listener

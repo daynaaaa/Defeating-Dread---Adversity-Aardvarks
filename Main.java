@@ -74,6 +74,7 @@ public class Main extends JPanel{
                   i.pressed();
                   current=i;
                   //System.out.println("a");
+                  if(i.pressed())m.c = 0;
                   break;
                case 3:
                   System.exit(0);
