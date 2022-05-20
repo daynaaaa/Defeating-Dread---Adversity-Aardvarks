@@ -2,7 +2,7 @@
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
  * Date: May 16, 2022
- * Desc: "Level1" class that will run the second level when called
+ * Desc: "Level1" class that will run the first level when called
  *
  * Version #2 May 16 - May 20 - [0.5 hrs]:
  *    Sulagna - created preliminary Level1 class with some methods
