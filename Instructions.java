@@ -43,8 +43,10 @@ public class Instructions extends JPanel {
      *
      * @return the boolean value of pressed
      */
-    public boolean getPressed() {
-        return pressed;
+    public void pressed() {
+        revalidate();
+        repaint();
+        while (!pressed);
     }
 
     /**

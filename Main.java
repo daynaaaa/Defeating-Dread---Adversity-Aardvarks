@@ -15,7 +15,7 @@ import javax.swing.*;
 import java.awt.*;
 public class Main extends JPanel{
    /**the user's choice*/
-	public int c;
+	public static int c;
    /**the current screen to be displayed*/
    public static JPanel current;
    /**the current frame*/
@@ -56,22 +56,30 @@ public class Main extends JPanel{
       s.play();
       current = s;*/
       m.c = 0;
-      while (m.c!=3) {
+      while (true) {
             //frame.remove(current);
-            Menu m2 = new Menu();
-            frame.add(m2);
-            frame.setBackground(Color.WHITE);
-            current = m2;
-            m.c = m2.getC();
-            if(m.c == 1){
-               
+            switch(m.c){
+               case 0:
+                  Menu m2 = new Menu();
+                  frame.add(m2);
+                  current = m2;
+                  m.c = m2.getC();
+
+               case 1:
+                  break;
+               case 2:
+                  frame.remove(current);
+                  Instructions i = new Instructions();
+                  frame.add(i);
+                  i.pressed();
+                  current=i;
+                  //System.out.println("a");
+                  break;
+               case 3:
+                  System.exit(0);
+                  break;
+               default:
             }
-            else if(m.c == 2){
-               
-            }
-            else if(m.c == 3){
-               System.exit(0);
-            }
-      }
+        }
 	}
 }

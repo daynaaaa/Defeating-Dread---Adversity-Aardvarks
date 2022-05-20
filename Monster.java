@@ -10,13 +10,9 @@
  */
 
 public class Monster {
-    /**
-     * damage
-     */
+    //damage
     private final int damage;
-    /**
-     * starting health
-     */
+    //starting health
     private int health;
 
     /**
