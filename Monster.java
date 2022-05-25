@@ -3,10 +3,9 @@
  * Teacher: Ms. Krasteva
  * Date: May 16, 2022
  * Desc: "Monster" class that creates a monster with parameters
- *
+ * <p>
  * Version #1 May 16 - May 20 - [0.5 hrs]:
- *    Mya - created preliminary Monster class with some methods
- *
+ * Mya - created preliminary Monster class with some methods
  */
 
 public class Monster {
@@ -25,9 +24,9 @@ public class Monster {
      * @param d damage
      * @param h health
      */
-    public Monster(int d, int h){
-        damage=d;
-        health=h;
+    public Monster(int d, int h) {
+        damage = d;
+        health = h;
     }
 
     /**
@@ -35,8 +34,8 @@ public class Monster {
      *
      * @param amt
      */
-    public void decrease(int amt){
-        health-=amt;
+    public void decrease(int amt) {
+        health -= amt;
     }
 
     /**
@@ -48,6 +47,6 @@ public class Monster {
     public boolean fight(Tool tool) {
         System.out.println("\nfighting:");
         this.decrease(tool.getDamage());
-        return health<=0;
+        return health <= 0;
     }
 }
