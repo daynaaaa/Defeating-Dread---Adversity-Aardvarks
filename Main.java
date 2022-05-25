@@ -51,19 +51,19 @@ public class Main extends JPanel{
       //panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       //panel.setLayout(new GridLayout(0, 1));
       
-      /*
+      
       SplashScreen s = new SplashScreen();
       frame.add (s);
-      s.play();
-      current = s;*/
+      s.start();
+      current = s;
       m.c = 0;
       while (true) {
-            //frame.remove(current);
+            frame.remove(current);
             frame.validate();
             frame.repaint();
             Menu m2 = new Menu();
             frame.add(m2);
-            //m2.updateC();
+            m2.updateC();
             current = m2;
             m.c = m2.getC();
             switch(m.c){
@@ -78,9 +78,8 @@ public class Main extends JPanel{
                   frame.remove(current);
                   Instructions i = new Instructions();
                   frame.add(i);
-                  i.pressed();
+                  if(i.pressed())m.c = 0;
                   current=i;
-                  //System.out.println("a");
                   //if(i.pressed())m.c = 0;
                   break;
                case 3:

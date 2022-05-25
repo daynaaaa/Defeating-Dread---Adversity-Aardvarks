@@ -19,9 +19,9 @@ import java.awt.*;
 import java.awt.event.*;
 public class Menu extends JPanel{
    /**the user's choice*/
-	private static int c;
+	private int c;
    /**whether the user has made a choice or not*/
-	private boolean isChosen;
+	private volatile boolean isChosen;
    /**the x value of the point the user clicks on*/
    private int x;
    /**the y value of the point the user clicks on*/
@@ -40,18 +40,18 @@ public class Menu extends JPanel{
                if(x>=250&&x <=550){
                   if(y>=150&&y<=230){
                      c = 1;
-                     repaint();
                      isChosen = true;
+                     repaint();
                   }
                   else if(y>=240&&y<=320){
                      c = 2;
-                     repaint();
                      isChosen = true;
+                     repaint();
                   }
                   else if(y>=330&&y<=410){
                      c = 3;
-                     repaint();
                      isChosen = true;
+                     repaint();
                   }
                }
                
@@ -64,7 +64,7 @@ public class Menu extends JPanel{
      * @return the int value of c
      */
 	public int getC() {
-		return this.c;
+		return c;
 	}
    /**
      * update the graphics until user makes a choice
@@ -72,7 +72,6 @@ public class Menu extends JPanel{
    public void updateC () {
        repaint();
        revalidate();
-       System.out.println(isChosen);
        while(!isChosen);
    }
    /**
