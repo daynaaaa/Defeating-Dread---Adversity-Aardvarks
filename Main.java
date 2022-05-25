@@ -35,6 +35,7 @@ public class Main extends JPanel{
       frame.setLocationRelativeTo(null);
       frame.setVisible(true);
    }
+   
    /**
      * Run the game
      */
@@ -58,14 +59,20 @@ public class Main extends JPanel{
       m.c = 0;
       while (true) {
             //frame.remove(current);
+            frame.validate();
+            frame.repaint();
+            Menu m2 = new Menu();
+            frame.add(m2);
+            //m2.updateC();
+            current = m2;
+            m.c = m2.getC();
             switch(m.c){
-               case 0:
-                  Menu m2 = new Menu();
-                  frame.add(m2);
-                  current = m2;
-                  m.c = m2.getC();
-
                case 1:
+                  frame.remove(current);
+                  Level3 l3 = new Level3();
+                  frame.add(l3);
+                  l3.start3();
+                  current=l3;
                   break;
                case 2:
                   frame.remove(current);
@@ -74,7 +81,7 @@ public class Main extends JPanel{
                   i.pressed();
                   current=i;
                   //System.out.println("a");
-                  if(i.pressed())m.c = 0;
+                  //if(i.pressed())m.c = 0;
                   break;
                case 3:
                   System.exit(0);

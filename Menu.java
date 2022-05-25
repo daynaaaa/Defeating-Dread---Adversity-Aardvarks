@@ -8,6 +8,8 @@
  *    Danya - added mouse listener to keep track of where the user clicks
  *    figured out the points that buttons would need to be in, and implemented the buttons
  *    added text
+ * Version #2 May 25 - [1 hr]:
+ *    Danya - added a method to update the graphics
  *    
  */
 import java.util.*;
@@ -18,6 +20,8 @@ import java.awt.event.*;
 public class Menu extends JPanel{
    /**the user's choice*/
 	private static int c;
+   /**whether the user has made a choice or not*/
+	private boolean isChosen;
    /**the x value of the point the user clicks on*/
    private int x;
    /**the y value of the point the user clicks on*/
@@ -31,14 +35,26 @@ public class Menu extends JPanel{
             public void mousePressed (MouseEvent e) {
                x = e.getX();
                y = e.getY();
-               //System.out.println(x+" "+y);
+               System.out.println(x+" "+y);
                //if buttons stuff
                if(x>=250&&x <=550){
-                  if(y>=150&&y<=230)c = 1;
-                  else if(y>=240&&y<=320)c = 2;
-                  else if(y>=330&&y<=410)c = 3;
+                  if(y>=150&&y<=230){
+                     c = 1;
+                     repaint();
+                     isChosen = true;
+                  }
+                  else if(y>=240&&y<=320){
+                     c = 2;
+                     repaint();
+                     isChosen = true;
+                  }
+                  else if(y>=330&&y<=410){
+                     c = 3;
+                     repaint();
+                     isChosen = true;
+                  }
                }
-               repaint();
+               
             }
       });
 	}
@@ -50,6 +66,15 @@ public class Menu extends JPanel{
 	public int getC() {
 		return this.c;
 	}
+   /**
+     * update the graphics until user makes a choice
+     */
+   public void updateC () {
+       repaint();
+       revalidate();
+       System.out.println(isChosen);
+       while(!isChosen);
+   }
    /**
      * Draw the graphics
      *
