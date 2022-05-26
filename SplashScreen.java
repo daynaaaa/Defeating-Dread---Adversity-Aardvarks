@@ -4,7 +4,7 @@
  * Date: May 25, 2022
  * Desc: "SplashScreen" class that will run the splash screen when called
  *
- * Version #1 May 25 - May 27 - [_ hrs]:
+ * Version #1 May 25 - May 27 - [15 mins]:
  *    Danya - framework
  *
  */

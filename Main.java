@@ -7,6 +7,9 @@
  * Version #1 May 16 - May 20 - [2.5 hrs]:
  *    Danya - implemented if statements to decide what screen to show next
  *    Also made the quit button work
+ * Version #2 May 24 - May 27 - [2 hrs]:
+ *    Danya - added splash screen
+ *    fix problem with while loop
  *    
  */
 import java.util.*;
@@ -68,6 +71,9 @@ public class Main extends JPanel{
             m.c = m2.getC();
             switch(m.c){
                case 1:
+                  //frame.remove(current);
+                  
+                  
                   frame.remove(current);
                   Level3 l3 = new Level3();
                   frame.add(l3);
@@ -80,7 +86,6 @@ public class Main extends JPanel{
                   frame.add(i);
                   if(i.pressed())m.c = 0;
                   current=i;
-                  //if(i.pressed())m.c = 0;
                   break;
                case 3:
                   System.exit(0);

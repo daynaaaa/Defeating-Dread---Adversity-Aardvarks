@@ -3,11 +3,12 @@
  * Teacher: Ms. Krasteva
  * Date: May 16, 2022
  * Desc: "Menu" class for the menu where the user can choose to play the game, go to instructions, or quit the game
- * <p>
+ *
  * Version #1 May 16 - May 20 - [1 hr]:
- * Mya -
- * Version #2 May 24 - May 27 - [1 hr]:
- * Danya - Fix instructions bug where the user can click anywhere
+ *    Mya -
+ * Version #2 May 24 - May 27 - [2 hrs]:
+ *    Danya - Fix instructions bug where the user can click anywhere
+ *
  */
 
 import javax.swing.*;
@@ -24,14 +25,13 @@ public class Instructions extends JPanel {
     private int x;
     /**the y value of the point the user clicks on*/
     private int y;
-
     /**
      * Constructor for the Menu class
      * Implements the mouse listener
      */
     public Instructions() {
         pressed = false;
-        addMouseListener(new MouseAdapter() {
+        addMouseListener (new MouseAdapter(){
             public void mousePressed(MouseEvent e) {
                 x = e.getX();
                 y = e.getY();
@@ -43,7 +43,6 @@ public class Instructions extends JPanel {
             }
         });
     }
-
     /**
      * exit when the back button is pressed
      * @return the boolean value of pressed
@@ -51,7 +50,7 @@ public class Instructions extends JPanel {
     public boolean pressed() {
         revalidate();
         repaint();
-        while (!pressed) ;
+        while (!pressed);
         return pressed;
     }
 
@@ -61,7 +60,8 @@ public class Instructions extends JPanel {
      * @param g the graphics to be drawn
      */
     @Override
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g)
+    {
         super.paintComponent(g);
         Color backgroundColour = new Color(46, 23, 110);
         setBackground(backgroundColour);
@@ -76,13 +76,13 @@ public class Instructions extends JPanel {
         g.drawString("Read and click through all of the information that will be provided", 150, 110);
         g.drawString("Level 2: Panic Room", 150, 130);
         g.drawString("In this level, you will be able to look at some possible tools that you can use", 150, 150);
-        g.drawString("to defeat the monsters. Youâ€™ll get to see a lot of choices, but you can only pick", 150, 170);
+        g.drawString("to defeat the monsters. You’ll get to see a lot of choices, but you can only pick", 150, 170);
         g.drawString("the 3 that you think will be the best for you. ", 150, 190);
         g.drawString("Look for the tools hidden on the screen and click on them to learn/equip", 150, 210);
         g.drawString("Use those tools to help you fight your anxiety in the form of monsters.", 150, 230);
         g.drawString("To use those tools, you will have to complete a task", 150, 250);
         g.drawString("Level 3: Escape Room", 150, 270);
-        g.drawString("On this final level, youâ€™ll be able to use your tools to help you defeat your anxiety,", 150, 290);
+        g.drawString("On this final level, you’ll be able to use your tools to help you defeat your anxiety,", 150, 290);
         g.setFont(new Font("SansSerif", Font.BOLD, 20));
         g.drawString("back", 330, 370);
     }
