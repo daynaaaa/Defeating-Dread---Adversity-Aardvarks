@@ -11,10 +11,10 @@
  *
  */
 
-
+import javax.swing.*;
 import java.util.*;
 
-public class Level1 {
+public class Level1 extends JPanel {
 
 	private ArrayList<String> lesson;
 
