@@ -8,7 +8,7 @@
  *    Danya - implemented if statements to decide what screen to show next
  *    Also made the quit button work
  * Version #2 May 24 - May 27 - [2 hrs]:
- *    Danya - added splash screen
+ *    Danya - added splash screen and l3
  *    fix problem with while loop
  *    
  */

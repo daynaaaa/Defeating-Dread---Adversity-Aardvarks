@@ -5,7 +5,7 @@
  * Desc: "Level3" class that will run the last level when called
  *
  * Version #1 May 24 - May 27 - [1 hrs]:
- *    Danya - 
+ *    Danya - added messages, which the user can go through by pressing space
  *
  */
 
@@ -72,7 +72,7 @@ public class Level3 extends JPanel{
                break;
             case 4:
                break;
-               
+            
             case 5:
                System.out.println("You win!");
                end = true;
