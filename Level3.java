@@ -32,7 +32,6 @@ public class Level3 extends JPanel{
     /**
      * constructor
      *
-     * @param cT chosen tools stored
      */
     //public Level3( ArrayList<Tool> cT) {
     public Level3() {

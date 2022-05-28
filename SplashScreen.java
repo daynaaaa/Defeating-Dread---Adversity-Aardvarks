@@ -5,7 +5,9 @@
  * Desc: "SplashScreen" class that will run the splash screen when called
  *
  * Version #1 May 25 - May 27 - [15 mins]:
- *    Danya - framework
+ *    Danya - framework and exiting
+ * Version #1 May 25 - May 27 - [0.5 hrs]:
+ *    Mya - preliminaty animation
  *
  */
 
@@ -15,16 +17,33 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 public class SplashScreen extends JPanel implements ActionListener{
-
+    /**
+     * if the splash screen is over
+     */
     private volatile boolean a;
+    /**
+     * timer for animation
+     */
     Timer tm;
+    /**
+     * speed and stating x for animation
+     */
     int x=0, speed=2;
-    @Override
+
+    /**
+     * animates the square/aardvark
+     *
+     * @param arg
+     * @Override
+    */
     public void actionPerformed(ActionEvent arg){
        x+=speed;
        repaint();
     }
 
+    /**
+     * runs the splashscreen
+     */
     public SplashScreen(){
         getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("SPACE"), "next");
         getActionMap().put("next", new AbstractAction() {

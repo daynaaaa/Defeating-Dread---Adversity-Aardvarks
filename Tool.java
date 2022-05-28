@@ -1,3 +1,6 @@
+import java.awt.*;
+import java.util.ArrayList;
+
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
@@ -6,16 +9,26 @@
  * <p>
  * Version #1 May 16 - May 20 - [0.5 hr]:
  * Mya - created preliminary Tool class with some methods
+ * Version #2 May 20 - May 27 - [0.5 hr]:
+ * Mya - changed some parameters for easier use
  */
 public class Tool {
     /**
      * String with name/info/task for tool
      */
-    private String name, info, task;
+    private String name, info;
+    private ArrayList<String> task;
     /**
      * how much damage
      */
     private int damage;
+    /**
+     * color of the weapon, will be replaced with an image
+     */
+    private Color color;
+
+    private int xCord, yCord;
+
 
     /**
      * constructor with parameters
@@ -24,13 +37,38 @@ public class Tool {
      * @param t task string
      * @param d damage int
      */
-    public Tool(String n, String i, String t, int d) {
+    public Tool(String n, String i, ArrayList t, int d, Color c, int x, int y) {
         name = n;
         info = i;
         task = t;
         damage = d;
+        color=c;
+        xCord=x;
+        yCord=y;
     }
 
+    /**
+     * get xCord
+     * used to draw the shape
+     *
+     * @return xCord as int
+     */
+    public int getxCord(){return xCord;}
+    /**
+     * get yCord
+     * used to draw the shape
+     *
+     * @return yCord as int
+     */
+    public int getyCord(){return yCord;}
+
+    /**
+     * get color
+     * will be replaced with image
+     *
+     * @return color as Color
+     */
+    public Color getColor(){return color;}
     /**
      * get name
      *
@@ -54,7 +92,7 @@ public class Tool {
      *
      * @return task as string
      */
-    public String getTask() {
+    public ArrayList<String> getTask() {
         return task;
     }
 

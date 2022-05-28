@@ -5,9 +5,11 @@
  * Desc: "Menu" class for the menu where the user can choose to play the game, go to instructions, or quit the game
  *
  * Version #1 May 16 - May 20 - [1 hr]:
- *    Mya -
+ *    Mya - original menu placeholder
  * Version #2 May 24 - May 27 - [2 hrs]:
  *    Danya - Fix instructions bug where the user can click anywhere
+ * Version #2 May 24 - May 27 - [0.5 hrs]:
+ *    Mya - add text to the screen
  *
  */
 

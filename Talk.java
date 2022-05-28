@@ -6,6 +6,8 @@
  * <p>
  * Version #1 May 16 - May 20 - [0.5 hrs]:
  * Mya - created preliminary Talk class with some methods
+ * Version #2 May 20 - May 27 - [0.5 hrs]:
+ * Mya - changed some parameters for easier use
  */
 
 import java.util.ArrayList;
