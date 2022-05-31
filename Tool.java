@@ -28,6 +28,7 @@ public class Tool {
     private Color color;
 
     private int xCord, yCord;
+    private int xSize=50, ySize=50;
 
 
     /**
@@ -104,6 +105,9 @@ public class Tool {
     public int getDamage() {
         return damage;
     }
+
+    public int getxSize(){return xSize;}
+    public int getySize(){return ySize;}
 
 
 }

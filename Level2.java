@@ -53,10 +53,6 @@ public class Level2 extends JPanel {
      * ints store x and y coordinates of mouse
      */
     private int x, y;
-    /**
-     * if the tool has been clicked
-     */
-    private boolean beenClicked=false;
 
     /**
      * constructor
@@ -72,7 +68,7 @@ public class Level2 extends JPanel {
         daggerInfo.add("In…2….3….4…. Out…2…3…4…");
 
         allTools.add(new Tool("dagger", "of deep breaths", daggerInfo, 5, Color.BLACK, 100, 100));
-        allTools.add(new Tool("cloak", "of something (cloack placeholder)", daggerInfo, 5, Color.BLUE, 300, 200));
+        allTools.add(new Tool("cloak", "of something (cloak placeholder)", daggerInfo, 5, Color.BLUE, 300, 200));
         allTools.add(new Tool("potion", "of something (potion placeholder)", daggerInfo, 5, Color.PINK, 200, 300));
         allTools.add(new Tool("net", "of something (net placeholder)", daggerInfo, 5, Color.GRAY, 300, 300));
 
@@ -85,27 +81,14 @@ public class Level2 extends JPanel {
                 repaint();
             }
         });
-    }
 
-    /**
-     * should check if the mouse is clicking in a certain spot but isn't working how it should
-     * @param mouseX x coordinate of place to check
-     * @param mouseY y coordinate of place to check
-     * @param length how far it should check (past the x cooridnate given)
-     * @param height how far it should check (past the y cooridnate given)
-     * @return if the area is pressed
-     */
-    public boolean mouseClicked(int mouseX, int mouseY, int length, int height) {
-        beenClicked=false;
         addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
-                while(!beenClicked) {
-                    if (e.getX() >= mouseX && e.getX() <= mouseX + length && e.getY() >= mouseY && e.getY() <= mouseY + height)
-                        beenClicked = true;
-                }
+                x = e.getX();
+                y = e.getY();
+                System.out.println(x+", "+y);
             }
         });
-        return beenClicked;
     }
 
     /**
@@ -119,28 +102,34 @@ public class Level2 extends JPanel {
         Color backgroundColour = new Color(46, 23, 110);
         setBackground(backgroundColour);
         //System.out.println(end);
+        g.setColor(Color.WHITE);
         switch (count) {
             case 1:
-                System.out.println("level 2:");
+                g.drawString("level 2:", 100, 100);
                 break;
             case 2:
-                System.out.println("look around the room for tools that you can use to help");
+                g.drawString("look around the room for tools that you can use to help", 100, 100);
                 break;
             case 3:
-                System.out.println("click on them to see what they do and equip them");
+                g.drawString("click on them to see what they do and equip them", 100, 100);
                 break;
             case 4:
+
                 for (Tool t : allTools) {
                     g.setColor(t.getColor());
-                    g.drawRect(t.getxCord(), t.getyCord(), 50, 50);
+                    g.fillRect(t.getxCord(), t.getyCord(), t.getxSize(), t.getySize());
+                    g.drawString(t.getName(), t.getxCord(), t.getyCord());
                 }
-                if(mouseClicked(allTools.get(0).getxCord(), allTools.get(0).getyCord(), 10, 10)){
-                    System.out.println(allTools.get(0).getName());
+
+                while (chosenTools.size()<3){
+
                 }
+
+
                 break;
 
             case 5:
-                System.out.println("good going!");
+                g.drawString("good going!", 100, 100);
                 end = true;
                 break;
             default:
