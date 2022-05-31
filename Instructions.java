@@ -6,9 +6,8 @@
  *
  * Version #1 May 16 - May 20 - [1 hr]:
  *    Mya - original menu placeholder
- * Version #2 May 24 - May 27 - [2 hrs]:
+ * Version #2 May 24 - May 27 - [2.5 hrs]:
  *    Danya - Fix instructions bug where the user can click anywhere
- * Version #2 May 24 - May 27 - [0.5 hrs]:
  *    Mya - add text to the screen
  *
  */
@@ -74,7 +73,7 @@ public class Instructions extends JPanel {
         g.drawString("Instructions", 150, 30);
         g.setFont(new Font("Arial", Font.PLAIN, 15));
         g.drawString("Level 1: Deficiencies Room", 150, 70);
-        g.drawString("In this level, you will learn about anxiety and how it might be affecting you.", 150, 90);
+        g.drawString("In this level, you will learn about anxiety and how it might be affecting you.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 150, 90);
         g.drawString("Read and click through all of the information that will be provided", 150, 110);
         g.drawString("Level 2: Panic Room", 150, 130);
         g.drawString("In this level, you will be able to look at some possible tools that you can use", 150, 150);
