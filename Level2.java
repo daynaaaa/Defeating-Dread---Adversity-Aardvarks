@@ -3,17 +3,16 @@
  * Teacher: Ms. Krasteva
  * Date: May 16, 2022
  * Desc: "Level2" class that will run the second level when called
- *
+ * <p>
  * Version #1 May 16 - May 20 - [0.5 hrs]:
- *      Mya - created preliminary Level2 class with some methods
- *      Does not draw anything
- *      Calls Tools(String, String, String, int), Monster(int, int), and Talk(ArrayList <String>)
- *
- * Version #1 May 20 - May 27 - [4 hrs]:
- *      Mya - add in some text
- *      try to add in mouse listener
- *      try to add in first activity - will continue next week
- *
+ * Mya - created preliminary Level2 class with some methods
+ * Does not draw anything
+ * Calls Tools(String, String, String, int), Monster(int, int), and Talk(ArrayList <String>)
+ * <p>
+ * Version #1 May 20 - May 27 - [5 hrs]:
+ * Mya - add in some text
+ * try to add in mouse listener
+ * try to add in first activity - will continue next week
  */
 
 import javax.swing.*;
@@ -52,7 +51,7 @@ public class Level2 extends JPanel {
     /**
      * ints store x and y coordinates of mouse
      */
-    private int x, y;
+    private int x=0, y=0;
 
     /**
      * constructor
@@ -86,7 +85,7 @@ public class Level2 extends JPanel {
             public void mousePressed(MouseEvent e) {
                 x = e.getX();
                 y = e.getY();
-                System.out.println(x+", "+y);
+                System.out.println(x + " in main " + y);
             }
         });
     }
@@ -104,36 +103,53 @@ public class Level2 extends JPanel {
         //System.out.println(end);
         g.setColor(Color.WHITE);
         switch (count) {
-            case 1:
+            case 0:
                 g.drawString("level 2:", 100, 100);
                 break;
-            case 2:
+            case 1:
                 g.drawString("look around the room for tools that you can use to help", 100, 100);
                 break;
-            case 3:
+            case 2:
                 g.drawString("click on them to see what they do and equip them", 100, 100);
                 break;
-            case 4:
-
-                for (Tool t : allTools) {
-                    g.setColor(t.getColor());
-                    g.fillRect(t.getxCord(), t.getyCord(), t.getxSize(), t.getySize());
-                    g.drawString(t.getName(), t.getxCord(), t.getyCord());
-                }
-
-                while (chosenTools.size()<3){
-
-                }
-
-
+            case 3:
+                collectTools(g);
                 break;
 
-            case 5:
+            case 4:
                 g.drawString("good going!", 100, 100);
                 end = true;
                 break;
             default:
 
+        }
+    }
+
+    /**
+     * takes the arraylist given and returns the first item
+     * will eventually take user input to add chosen tools
+     */
+    public void collectTools(Graphics g) {
+        g.drawString("collecting tools:", 20, 100);
+        ArrayList<Tool> collected = new ArrayList<>();
+        collected.add(allTools.remove(0));
+
+        while (chosenTools.size() < 3) {
+            repaint();
+            System.out.println(x+" in while "+y);
+            x= getMousePosition().x;
+            y= getMousePosition().y;
+
+            for (Tool t : allTools) {
+                g.setColor(t.getColor());
+                g.fillRect(t.getxCord(), t.getyCord(), t.getxSize(), t.getySize());
+                g.drawString(t.getName(), t.getxCord(), t.getyCord());
+            }
+
+            if (x >= 100 && x <= 150) {
+                allTools.add(allTools.get(0));
+                g.drawString("item " + chosenTools.get(0).getName() + " has been chosen", 200, 100);
+            }
         }
     }
 
@@ -146,16 +162,12 @@ public class Level2 extends JPanel {
         while (!end) ;
     }
 
-    /**
-     * takes the arraylist given and returns the first item
-     * will eventually take user input to add chosen tools
-     *
-     * @return the three tools needed for the next step
-     */
-    public ArrayList<Tool> collectTools() {
-        System.out.println("collecting tools:\n");
-        ArrayList<Tool> collected = new ArrayList<>();
-        collected.add(allTools.remove(0));
-        return collected;
-    }
+
 }
+
+
+
+
+
+
+
