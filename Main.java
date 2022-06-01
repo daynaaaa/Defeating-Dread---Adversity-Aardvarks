@@ -24,7 +24,6 @@ public class Main extends JPanel{
    /**the current frame*/
    public static JFrame frame;
    //public static Graphics2D graphics;
-
    /**
      * initialize the frame
    */
@@ -72,15 +71,16 @@ public class Main extends JPanel{
             m.c = m2.getC();
             switch(m.c){
                case 1:
+                  
+                  //level 2
                   frame.remove(current);
                   Level2 l2 = new Level2();
                   frame.add(l2);
                   l2.start2();
                   current=l2;
-
                   //level 3
                   frame.remove(current);
-                  Level3 l3= new Level3();
+                  Level3 l3 = new Level3();
                   frame.add(l3);
                   l3.start3();
                   current=l3;
