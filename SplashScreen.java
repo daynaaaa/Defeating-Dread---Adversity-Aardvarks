@@ -9,9 +9,6 @@
  * Version #1 May 25 - May 27 - [0.5 hrs]:
  * Mya - preliminaty animation
  */
-
-//import java.util.*;
-
 import java.io.*;
 import javax.swing.*;
 import java.awt.*;
