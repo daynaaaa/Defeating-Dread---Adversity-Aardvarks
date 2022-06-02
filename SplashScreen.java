@@ -22,11 +22,12 @@ public class SplashScreen extends JPanel implements ActionListener {
     /**
      * timer for animation
      */
-    Timer tm;
+    Timer tm = new Timer(100, this);
+
     /**
      * speed and stating x for animation
      */
-    int x = 0, speed = 2;
+    int x = 0, speed = 25;
 
     /**
      * animates the square/aardvark
@@ -38,7 +39,6 @@ public class SplashScreen extends JPanel implements ActionListener {
         if(x<800) x += speed;
         else a=true;
         repaint();
-
     }
 
     /**
@@ -63,12 +63,14 @@ public class SplashScreen extends JPanel implements ActionListener {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Color backgroundColour = new Color(46, 23, 110);
+        Color backgroundColour = new Color(113, 189, 217);
         setBackground(backgroundColour);
+        g.setColor(Color.GREEN);
+        g.fillRect(0, 400, 800, 100);
         g.setColor(new Color(159, 84, 43)); //brown like an aardvark hehe
-        g.fillRect(x, 30, 50, 50);
-        tm = new Timer(100, this);
+        g.fillOval(x, 360, 50, 50);
         tm.start();
+
     }
 
     /**
