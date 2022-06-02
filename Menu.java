@@ -3,102 +3,104 @@
  * Teacher: Ms. Krasteva
  * Date: May 16, 2022
  * Desc: "Menu" class for the menu where the user can choose to play the game, go to instructions, or quit the game
- *
+ * <p>
  * Version #1 May 16 - May 20 - [3 hr]:
- *    Danya - added mouse listener to keep track of where the user clicks
- *    figured out the points that buttons would need to be in, and implemented the buttons
- *    added text
+ * Danya - added mouse listener to keep track of where the user clicks
+ * figured out the points that buttons would need to be in, and implemented the buttons
+ * added text
  * Version #2 May 25 - [1 hr]:
- *    Danya - added a method to update the graphics
- *    
+ * Danya - added a method to update the graphics
  */
+
 import java.util.*;
 import java.io.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Menu extends JPanel{
-   /**the user's choice*/
-	private int c;
-   /**whether the user has made a choice or not*/
-	private volatile boolean isChosen;
-   /**the x value of the point the user clicks on*/
-   private int x;
-   /**the y value of the point the user clicks on*/
-   private int y;
-   /**
+
+public class Menu extends JPanel {
+    /**the user's choice*/
+    private int c;
+    /**whether the user has made a choice or not*/
+    private volatile boolean isChosen;
+    /**the x value of the point the user clicks on*/
+    private int x;
+    /**the y value of the point the user clicks on*/
+    private int y;
+
+    /**
      * Constructor for the Menu class
      * Implements the mouse listener
      */
-	public Menu() {
-      addMouseListener (new MouseAdapter(){
-            public void mousePressed (MouseEvent e) {
-               x = e.getX();
-               y = e.getY();
-               System.out.println(x+" "+y);
-               //if buttons stuff
-               if(x>=250&&x <=550){
-                  if(y>=150&&y<=230){
-                     c = 1;
-                     isChosen = true;
-                     repaint();
-                  }
-                  else if(y>=240&&y<=320){
-                     c = 2;
-                     isChosen = true;
-                     repaint();
-                  }
-                  else if(y>=330&&y<=410){
-                     c = 3;
-                     isChosen = true;
-                     repaint();
-                  }
-               }
-               
+    public Menu() {
+        addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                x = e.getX();
+                y = e.getY();
+                System.out.println(x + " " + y);
+                //if buttons stuff
+                if (x >= 250 && x <= 550) {
+                    if (y >= 150 && y <= 230) {
+                        c = 1;
+                        isChosen = true;
+                        repaint();
+                    } else if (y >= 240 && y <= 320) {
+                        c = 2;
+                        isChosen = true;
+                        repaint();
+                    } else if (y >= 330 && y <= 410) {
+                        c = 3;
+                        isChosen = true;
+                        repaint();
+                    }
+                }
+
             }
-      });
-	}
-   /**
+        });
+    }
+
+    /**
      * Get the choice
      *
      * @return the int value of c
      */
-	public int getC() {
-		return c;
-	}
-   /**
+    public int getC() {
+        return c;
+    }
+
+    /**
      * update the graphics until user makes a choice
      */
-   public void updateC () {
-       repaint();
-       revalidate();
-       while(!isChosen);
-   }
-   /**
+    public void updateC() {
+        repaint();
+        revalidate();
+        while (!isChosen) ;
+    }
+
+    /**
      * Draw the graphics
      *
      * @param g the graphics to be drawn
      */
-   @Override
-   public void paintComponent(Graphics g)
-   {
-      super.paintComponent(g);
-      Color backgroundColour = new Color(46, 23, 110);
-      setBackground(backgroundColour);
-      g.setColor(Color.BLACK);
-      g.fillRect(250, 150, 300, 80);
-      g.fillRect(250, 240, 300, 80);
-      g.fillRect(250, 330, 300, 80);
-      g.setColor(Color.WHITE);
-      g.setFont(new Font("Courier", Font.BOLD, 33));
-      g.drawString("DEFEATING DREAD", 250, 30);
-      g.setFont(new Font("Courier", Font.BOLD, 20));
-      g.drawString("A game brought to you by:", 250, 70);
-      g.drawString("Adversity Aardvarks", 290, 100);
-      g.drawString("play game", 330, 190);
-      g.drawString("instructions", 330, 280);
-      g.drawString("quit", 330, 370);
-      //(string, x, y);
-      //if(b)g.fillOval(x - 1, y - 1, 3, 3);
-   }
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Color backgroundColour = new Color(46, 23, 110);
+        setBackground(backgroundColour);
+        g.setColor(Color.BLACK);
+        g.fillRect(250, 150, 300, 80);
+        g.fillRect(250, 240, 300, 80);
+        g.fillRect(250, 330, 300, 80);
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Courier", Font.BOLD, 33));
+        g.drawString("DEFEATING DREAD", 250, 30);
+        g.setFont(new Font("Courier", Font.BOLD, 20));
+        g.drawString("A game brought to you by:", 250, 70);
+        g.drawString("Adversity Aardvarks", 290, 100);
+        g.drawString("play game", 330, 190);
+        g.drawString("instructions", 330, 280);
+        g.drawString("quit", 330, 370);
+        //(string, x, y);
+        //if(b)g.fillOval(x - 1, y - 1, 3, 3);
+    }
 }

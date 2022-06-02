@@ -40,7 +40,7 @@ public class Level3 extends JPanel{
     /**
      * constructor
      *
-     * @param cT chosen tools stored
+    // * @param cT chosen tools stored
      */
     //public Level3( ArrayList<Tool> cT) {
     public Level3() {
@@ -61,8 +61,8 @@ public class Level3 extends JPanel{
                 if (x > 170 && y > 370 && x < 250 && y < 450) {
                     //currentTool = chosenTools.get(0);
                     tool = 1;
-                    g.setColor(Color.WHITE);
-                    g.drawString(currentTool.getName(), 0, 0);
+                    //g.setColor(Color.WHITE);
+                    //g.drawString(currentTool.getName(), 0, 0);
 
                     repaint();
                 }
