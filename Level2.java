@@ -63,7 +63,7 @@ public class Level2 extends JPanel {
         daggerInfo.add("Deep breathing can help you control your anxiety");
         daggerInfo.add("Deep breathing tells your nervous system to relax");
         daggerInfo.add("To use this tool, practice some deep breathing");
-        daggerInfo.add("Inâ€¦2â€¦.3â€¦.4â€¦. Outâ€¦2â€¦3â€¦4â€¦");
+        daggerInfo.add("In…2….3….4…. Out…2…3…4…");
 
         availableTools.add(new Tool("dagger", "of deep breaths", daggerInfo, 5, Color.BLACK, 100, 100));
         availableTools.add(new Tool("cloak", "of something (cloak placeholder)", daggerInfo, 5, Color.BLUE, 300, 200));
@@ -202,6 +202,13 @@ public class Level2 extends JPanel {
         revalidate();
         repaint();
         while (!end) ;
+    }
+    
+    /**
+     * @return chosenTools
+     */
+    public ArrayList<Tool> returnChosenTools(){
+        return chosenTools;
     }
 
 
