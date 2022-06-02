@@ -73,17 +73,24 @@ public class Main extends JPanel{
                case 1:
                   
                   //level 2
-                  frame.remove(current);
+                  /*frame.remove(current);
                   Level2 l2 = new Level2();
                   frame.add(l2);
                   l2.start2();
-                  current=l2;
+                  current=l2;*/
                   //level 3
                   frame.remove(current);
-                  Level3 l3 = new Level3();
-                  frame.add(l3);
-                  l3.start3();
-                  current=l3;
+                  ConnectingScreen cs = new ConnectingScreen();
+                  frame.add(cs);
+                  cs.updateC();
+                  current=cs;
+                  if(cs.getC() == 1){
+                     frame.remove(current);
+                     Level3 l3 = new Level3();
+                     frame.add(l3);
+                     l3.start3();
+                     current=l3;
+                  }
                   break;
                case 2:
                   frame.remove(current);
