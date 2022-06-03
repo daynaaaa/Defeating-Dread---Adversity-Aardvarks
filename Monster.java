@@ -11,10 +11,6 @@
 
 public class Monster {
     /**
-     * damage
-     */
-    private final int damage;
-    /**
      * starting health
      */
     private int health;
@@ -25,8 +21,7 @@ public class Monster {
      * @param d damage
      * @param h health
      */
-    public Monster(int d, int h){
-        damage=d;
+    public Monster(int h){
         health=h;
     }
 

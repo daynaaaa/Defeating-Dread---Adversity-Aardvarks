@@ -6,7 +6,7 @@
  *
  * Version #1 May 24 - May 27 - [1 hrs]:
  *    Danya - added messages, which the user can go through by pressing space
- * Version #2 May 30 - June 3 - [1 hrs]:
+ * Version #2 May 30 - June 3 - [2 hrs]:
  *    Danya - added squares to represent the characters and the tools
  *
  */
@@ -37,19 +37,24 @@ public class Level3 extends JPanel{
     private int tool;
     /** If the user is fighting the monster yet*/
     private boolean isMonster;
+    /** If the user is reading dialogue */
+    private boolean isDialogue;
     /**
      * constructor
      *
-    // * @param cT chosen tools stored
+     * @param cT chosen tools stored
      */
-    //public Level3( ArrayList<Tool> cT) {
-    public Level3() {
+    public Level3(ArrayList<Tool> cT) {
+    //public Level3() {
+         //cT.get(0).getName();
+         chosenTools = cT;
          end = false;
+         isDialogue = true;
          getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("SPACE"), "next");
          getActionMap().put("next", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                count++;
+                if(isDialogue) count++;
                 repaint();
             }
          });
@@ -58,23 +63,22 @@ public class Level3 extends JPanel{
                 int x = e.getX();
                 int y = e.getY();
                 //choosing tools
-                if (x > 170 && y > 370 && x < 250 && y < 450) {
-                    //currentTool = chosenTools.get(0);
-                    tool = 1;
-                    //g.setColor(Color.WHITE);
-                    //g.drawString(currentTool.getName(), 0, 0);
-
-                    repaint();
-                }
-                else if (x > 270 && y > 370 && x < 350 && y < 450) {
-                    //currentTool = chosenTools.get(1);
-                    tool = 2;
-                    repaint();
-                }
-                else if (x > 370 && y > 370 && x < 450 && y < 450) {
-                    //currentTool = chosenTools.get(2);
-                    tool = 3;
-                    repaint();
+                if(count >= 4){
+                   if (x > 170 && y > 370 && x < 250 && y < 450) {
+                       currentTool = chosenTools.get(0);
+                       tool = 1;
+                       repaint();
+                   }
+                   else if (x > 270 && y > 370 && x < 350 && y < 450) {
+                       currentTool = chosenTools.get(1);
+                       tool = 2;
+                       repaint();
+                   }
+                   else if (x > 370 && y > 370 && x < 450 && y < 450) {
+                       currentTool = chosenTools.get(2);
+                       tool = 3;
+                       repaint();
+                   }
                 }
             }
         });
@@ -101,6 +105,8 @@ public class Level3 extends JPanel{
            g.setColor(Color.WHITE);
            g.fillRect(270, 370, 80, 80);
            g.fillRect(370, 370, 80, 80);
+           g.setColor(Color.WHITE);
+           g.drawString(currentTool.getName(), 20, 20);
         }
         else if(tool == 2){
            g.setColor(Color.GREEN);
@@ -116,25 +122,31 @@ public class Level3 extends JPanel{
            g.fillRect(270, 370, 80, 80);
            g.fillRect(170, 370, 80, 80);
         }
-        
-        //System.out.println(end);
+        g.setFont(new Font("Courier", Font.BOLD, 20));
         switch(count){
             case 1:
-               System.out.println("It's getting pretty dark out here...");
+               g.drawString("It's getting pretty dark out here...", 20, 70);
                break;
             case 2:
-               System.out.println("Now that you have chosen your tools, it is time to make your way out of this forest, but watch out for the monsters!");
+               g.drawString("Now that you have chosen your tools, it is time to make your", 20, 70);
+               g.drawString("way out of this forest, but watch out for the monsters!", 20, 100);
                break;
             case 3:
-               System.out.println("Good luck! I won’t be able to help you anymore, but I believe in you! Click on each tool to use them on the monsters.");
+               g.drawString("Good luck! I won’t be able to help you anymore, but I believe", 20, 70);
+               g.drawString("in you! Click on each tool to use them on the monsters.", 20, 100);
                break;
             case 4:
                isMonster = true;
-               
+               isDialogue = false;
+               for(int i = 1; i <= 5; i++){
+                  Monster m = new Monster(i*10);
+                  /*if(!m.fight(chosenTool)){
+                     //kill
+                  }*/
+               }
                break;
             
             case 5:
-               System.out.println("You win!");
                end = true;
                break;
             default:
