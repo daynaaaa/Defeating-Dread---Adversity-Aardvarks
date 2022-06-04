@@ -9,10 +9,14 @@
  * Does not draw anything
  * Calls Tools(String, String, String, int), Monster(int, int), and Talk(ArrayList <String>)
  * <p>
- * Version #1 May 20 - May 27 - [5 hrs]:
+ * Version #2 May 20 - May 27 - [5 hrs]:
  * Mya - add in some text
  * try to add in mouse listener
  * try to add in first activity - will continue next week
+ * <p>
+ * Version #3 May 27 - June 3 - [5 hrs]:
+ * Mya - added in tools and mouse actions
+ * brought text to screen
  */
 
 import javax.swing.*;
@@ -62,7 +66,7 @@ public class Level2 extends JPanel {
     //public Level2( ArrayList<Tool> cT) {
     public Level2() {
         end = false;
-        isDialogue=true;
+        isDialogue = true;
         ArrayList<String> daggerInfo = new ArrayList<>();
         daggerInfo.add("of deep breaths");
         daggerInfo.add("Deep breathing can help you control your anxiety");
@@ -79,12 +83,12 @@ public class Level2 extends JPanel {
         getActionMap().put("next", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //System.out.println("hi");
-                if(isDialogue) count++;
+                if (isDialogue) count++;
                 repaint();
             }
         });
 
+        //mouse listener
         addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 x = e.getX();
@@ -117,11 +121,11 @@ public class Level2 extends JPanel {
                 g.drawString("click on them to see what they do and equip them", 100, 100);
                 break;
             case 3:
-                isDialogue=false;
+                isDialogue = false;
                 drawAvailableTools(g);
                 break;
             case 4:
-                isDialogue=true;
+                isDialogue = true;
                 displayChosenTools(g);
                 break;
             case 5:
@@ -136,6 +140,12 @@ public class Level2 extends JPanel {
         }
     }
 
+    /**
+     * collects the tools if they are clicked and moves to next screen when 3 tools are chosen
+     *
+     * @param x mouse x
+     * @param y mouse y
+     */
     private void collectTool(int x, int y) {
         Tool selectedTool = clickedInAvailableTool(x, y);
         if (selectedTool != null) {
@@ -151,6 +161,13 @@ public class Level2 extends JPanel {
         }
     }
 
+    /**
+     * checks if the mouse clicked inside a tool
+     *
+     * @param x mouse x
+     * @param y mouse y
+     * @return the tool that was clicked in if a tool was clicked, else returns null
+     */
     private Tool clickedInAvailableTool(int x, int y) {
         for (Tool t : availableTools) {
             if (x >= t.getxCord() && x <= (t.getxCord() + t.getxSize()) &&
@@ -162,6 +179,11 @@ public class Level2 extends JPanel {
         return null;
     }
 
+    /**
+     * writes out chosen tools across the screen
+     *
+     * @param g graphics to draw
+     */
     private void displayChosenTools(Graphics g) {
         g.drawString("The tools you have chosen are:", 100, 120);
         int drawStringY = 150;
@@ -171,6 +193,11 @@ public class Level2 extends JPanel {
         }
     }
 
+    /**
+     * draws available tools during selection
+     *
+     * @param g grpahics to draw
+     */
     private void drawAvailableTools(Graphics g) {
         for (Tool t : availableTools) {
             g.setColor(t.getColor());
@@ -183,6 +210,8 @@ public class Level2 extends JPanel {
     /**
      * takes the arraylist given and returns the first item
      * will eventually take user input to add chosen tools
+     *
+     * @param g graphics to draw
      */
     public void collectTools(Graphics g) {
         g.drawString("collecting tools:", 20, 100);

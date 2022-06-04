@@ -6,9 +6,12 @@
  * <p>
  * Version #1 May 25 - May 27 - [15 mins]:
  * Danya - framework and exiting
- * Version #1 May 25 - May 27 - [0.5 hrs]:
+ * Version #2 May 25 - May 27 - [0.5 hrs]:
  * Mya - preliminaty animation
+ * Version #3 May 27 - June 3 - [0.5 hrs]:
+ * Mya - fixed final animation and stylistic changes
  */
+
 import java.io.*;
 import javax.swing.*;
 import java.awt.*;
@@ -36,8 +39,8 @@ public class SplashScreen extends JPanel implements ActionListener {
      * @Override
      */
     public void actionPerformed(ActionEvent arg) {
-        if(x<800) x += speed;
-        else a=true;
+        if (x < 800) x += speed;
+        else a = true;
         repaint();
     }
 
