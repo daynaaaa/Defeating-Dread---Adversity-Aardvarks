@@ -68,8 +68,10 @@ public class SplashScreen extends JPanel implements ActionListener {
         g.setColor(Color.GREEN);
         g.fillRect(0, 400, 800, 100);
         g.setColor(new Color(159, 84, 43)); //brown like an aardvark hehe
-        g.fillOval(x, 360, 50, 50);
+        g.fillOval(x, 360, 70, 70);
         tm.start();
+        g.setColor(Color.ORANGE);
+        g.fillOval(700, -50, 200, 200);
 
     }
 

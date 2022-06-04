@@ -50,7 +50,11 @@ public class Level2 extends JPanel {
     /**
      * ints store x and y coordinates of mouse
      */
-    private int x=0, y=0;
+    private int x = 0, y = 0;
+    /**
+     * checks if dialogue is playing
+     */
+    private boolean isDialogue;
 
     /**
      * constructor
@@ -58,12 +62,13 @@ public class Level2 extends JPanel {
     //public Level2( ArrayList<Tool> cT) {
     public Level2() {
         end = false;
+        isDialogue=true;
         ArrayList<String> daggerInfo = new ArrayList<>();
         daggerInfo.add("of deep breaths");
         daggerInfo.add("Deep breathing can help you control your anxiety");
         daggerInfo.add("Deep breathing tells your nervous system to relax");
         daggerInfo.add("To use this tool, practice some deep breathing");
-        daggerInfo.add("In…2….3….4…. Out…2…3…4…");
+        daggerInfo.add("In...2...3...4... Out...2...3...4... ");
 
         availableTools.add(new Tool("dagger", "of deep breaths", daggerInfo, 5, Color.BLACK, 100, 100));
         availableTools.add(new Tool("cloak", "of something (cloak placeholder)", daggerInfo, 5, Color.BLUE, 300, 200));
@@ -75,7 +80,7 @@ public class Level2 extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //System.out.println("hi");
-                count++;
+                if(isDialogue) count++;
                 repaint();
             }
         });
@@ -84,36 +89,9 @@ public class Level2 extends JPanel {
             public void mouseClicked(MouseEvent e) {
                 x = e.getX();
                 y = e.getY();
-                System.out.println(x + " in main " + y);
                 collectTool(x, y);
             }
         });
-    }
-
-    private void collectTool(int x, int y) {
-        Tool selectedTool = clickedInAvailableTool(x,y);
-        if (selectedTool != null) {
-            // collect it
-            availableTools.remove(selectedTool);
-            chosenTools.add(selectedTool);
-            if (chosenTools.size()==3) {
-                // move to the next screen
-                count++;
-            }
-            // redraw to reflect the currently available tools
-            repaint();
-        }
-    }
-
-    private Tool clickedInAvailableTool(int x, int y) {
-        for (Tool t : availableTools) {
-            if (x >= t.getxCord() && x <= (t.getxCord()+t.getxSize()) &&
-                y >= t.getyCord() && y <= (t.getyCord()+t.getySize())) {
-                // we have hit the tool
-                return t;
-            }
-        }
-        return null;
     }
 
     /**
@@ -139,15 +117,16 @@ public class Level2 extends JPanel {
                 g.drawString("click on them to see what they do and equip them", 100, 100);
                 break;
             case 3:
+                isDialogue=false;
                 drawAvailableTools(g);
                 break;
             case 4:
+                isDialogue=true;
                 displayChosenTools(g);
                 break;
             case 5:
                 g.drawString("good going! next level...", 100, 100);
                 break;
-
             case 6:
                 end = true;
                 break;
@@ -157,12 +136,38 @@ public class Level2 extends JPanel {
         }
     }
 
+    private void collectTool(int x, int y) {
+        Tool selectedTool = clickedInAvailableTool(x, y);
+        if (selectedTool != null) {
+            // collect it
+            availableTools.remove(selectedTool);
+            chosenTools.add(selectedTool);
+            if (chosenTools.size() == 3) {
+                // move to the next screen
+                count++;
+            }
+            // redraw to reflect the currently available tools
+            repaint();
+        }
+    }
+
+    private Tool clickedInAvailableTool(int x, int y) {
+        for (Tool t : availableTools) {
+            if (x >= t.getxCord() && x <= (t.getxCord() + t.getxSize()) &&
+                    y >= t.getyCord() && y <= (t.getyCord() + t.getySize())) {
+                // we have hit the tool
+                return t;
+            }
+        }
+        return null;
+    }
+
     private void displayChosenTools(Graphics g) {
         g.drawString("The tools you have chosen are:", 100, 120);
-        int drawStringY=150;
+        int drawStringY = 150;
         for (Tool t : chosenTools) {
-            g.drawString(t.getName()+", ", 100, drawStringY);
-            drawStringY+=20;
+            g.drawString(t.getName() + ", ", 100, drawStringY);
+            drawStringY += 20;
         }
     }
 
@@ -184,8 +189,8 @@ public class Level2 extends JPanel {
 
         while (chosenTools.size() < 3) {
             repaint();
-            x= getMousePosition().x;
-            y= getMousePosition().y;
+            x = getMousePosition().x;
+            y = getMousePosition().y;
 
 
             if (x >= 100 && x <= 150) {
@@ -203,20 +208,13 @@ public class Level2 extends JPanel {
         repaint();
         while (!end) ;
     }
-    
+
     /**
      * @return chosenTools
      */
-    public ArrayList<Tool> returnChosenTools(){
+    public ArrayList<Tool> returnChosenTools() {
         return chosenTools;
     }
 
 
 }
-
-
-
-
-
-
-
