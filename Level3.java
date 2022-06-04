@@ -6,7 +6,7 @@
  *
  * Version #1 May 24 - May 27 - [1 hrs]:
  *    Danya - added messages, which the user can go through by pressing space
- * Version #2 May 30 - June 3 - [5 hrs]:
+ * Version #2 May 30 - June 3 - [7 hrs]:
  *    Danya - added squares to represent the characters and the tools
  *    Added the function to view the tools details
  *    Also implemented fighting the monster
@@ -188,7 +188,7 @@ public class Level3 extends JPanel{
                g.drawString("way out of this forest, but watch out for the monsters!", 20, 100);
                break;
             case 3:
-               g.drawString("Good luck! I won’t be able to help you anymore, but I believe", 20, 70);
+               g.drawString("Good luck! I wonâ€™t be able to help you anymore, but I believe", 20, 70);
                g.drawString("in you! Click on each tool to use them on the monsters.", 20, 100);
                break;
             case 4:
