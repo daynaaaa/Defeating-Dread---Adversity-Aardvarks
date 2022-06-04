@@ -33,7 +33,12 @@ public class Monster {
     public void decrease(int amt){
         health-=amt;
     }
-
+    /**
+     * @return health
+     */
+    public int getHealth(){
+        return health;
+    }
     /**
      * fight the monster
      *
@@ -41,7 +46,6 @@ public class Monster {
      * @return true if the monster is defeated
      */
     public boolean fight(Tool tool) {
-        System.out.println("\nfighting:");
         this.decrease(tool.getDamage());
         return health<=0;
     }
