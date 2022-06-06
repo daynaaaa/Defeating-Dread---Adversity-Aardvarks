@@ -10,6 +10,8 @@
  * Version #2 May 24 - May 27 - [2 hrs]:
  * Danya - added splash screen and l3
  * fix problem with while loop
+ * Version #3 June 2 - [1 hrs]:
+ *    Danya - added level 2 and 3
  */
 
 import java.util.*;
