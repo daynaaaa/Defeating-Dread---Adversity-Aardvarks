@@ -24,6 +24,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Level2 extends JPanel {
@@ -68,16 +69,66 @@ public class Level2 extends JPanel {
         end = false;
         isDialogue = true;
         ArrayList<String> daggerInfo = new ArrayList<>();
-        daggerInfo.add("of deep breaths");
         daggerInfo.add("Deep breathing can help you control your anxiety");
         daggerInfo.add("Deep breathing tells your nervous system to relax");
         daggerInfo.add("To use this tool, practice some deep breathing");
         daggerInfo.add("In...2...3...4... Out...2...3...4... ");
 
-        availableTools.add(new Tool("dagger", "of deep breaths", daggerInfo, 5, Color.BLACK, 100, 100));
-        availableTools.add(new Tool("cloak", "of something (cloak placeholder)", daggerInfo, 5, Color.BLUE, 300, 200));
-        availableTools.add(new Tool("potion", "of something (potion placeholder)", daggerInfo, 5, Color.PINK, 200, 300));
-        availableTools.add(new Tool("net", "of something (net placeholder)", daggerInfo, 5, Color.GRAY, 300, 300));
+        ArrayList<String> sceptreInfo = new ArrayList<>();
+        sceptreInfo.add("At school, there are counsellors and administrators trained to help you");
+        sceptreInfo.add("spot the roots of your anxiety and give you a range of strategies to deal with them.");
+        sceptreInfo.add("It may be scary at first, but they are there for you and it is definitely worth a try.");
+        sceptreInfo.add("To use this tool, identify some people who are there to support you.");
+        sceptreInfo.add("Come up with 3 people around you who are ready to help");
+
+        ArrayList<String> cloakInfo = new ArrayList<>();
+        cloakInfo.add("Communicating with your parents, teachers, and friends is key to reducing your anxiety.");
+        cloakInfo.add("Telling them about your difficulties can help them help you identify");
+        cloakInfo.add("the stressors in your life and take steps to working through them.");
+        cloakInfo.add("To use this tool, message a friend and ask them how they are feeling.");
+        cloakInfo.add("Continue when you have sent a friend a message to let them know you are there");
+
+        ArrayList<String> elixirInfo = new ArrayList<>();
+        elixirInfo.add("Develop a routine to be physically active throughout the week.");
+        elixirInfo.add("Exercise can improve your mood.");
+        elixirInfo.add("To use this tool, do 10 jumping jacks and note how you feel before/after.");
+        elixirInfo.add("Continue when you finish");
+
+        ArrayList<String> javelinInfo = new ArrayList<>();
+        javelinInfo.add("Journaling can help you identify what's causing you stress.");
+        javelinInfo.add("Putting your feelings in words can help you feel better.");
+        javelinInfo.add("To use this tool, write down something you’ve been feeling.");
+        javelinInfo.add("Continue when you finish");
+
+        ArrayList<String> swordInfo = new ArrayList<>();
+        swordInfo.add("Make sure sleep is a priority and that you feel rested.");
+        swordInfo.add("You can talk with your doctor if you aren't sleeping well.");
+        swordInfo.add("To use this tool, plan out a full night of sleep.");
+        swordInfo.add("Continue when you calculate the time you will have go to bed.");
+        swordInfo.add("tonight to get the recommended 8-10 hours");
+
+        ArrayList<String> slingInfo = new ArrayList<>();
+        slingInfo.add("Anxiety can prevent you from wanting to see your friends.");
+        slingInfo.add("Spend time with loved ones and do activities you enjoy.");
+        slingInfo.add("To use this tool, plan out time to see your friend.");
+        slingInfo.add("Continue when you set out some time to see your friend");
+
+        ArrayList<String> netInfo = new ArrayList<>();
+        netInfo.add("Incorporate vegetables, fruits, whole grains, and fish into your diet.");
+        netInfo.add("Along with other positive changes, changing your diet to include ");
+        netInfo.add("healthy, balanced meals, can improve your mood");
+        netInfo.add("To use this tool, decide on a healthy meal.");
+        netInfo.add("Continue when you have a plan for what you will eat");
+
+        availableTools.add(new Tool("Dagger", "of deep breaths", daggerInfo, 5,"aa-dagger.png", new Point(100, 100)));
+        availableTools.add(new Tool("Scepter", "of support", sceptreInfo, 5, "aa-septer.png", new Point(100, 200)));
+        availableTools.add(new Tool("Elixir", "of exercise ", elixirInfo, 5, "aa-potion.png", new Point(200, 100)));
+        availableTools.add(new Tool("Net", "of nutrition", netInfo, 5, "aa-net.png", new Point(200, 200)));
+        availableTools.add(new Tool("Cloak", "of communication", cloakInfo, 5, "aa-cloak.png", new Point(300, 100)));
+        availableTools.add(new Tool("Javelin", "of journaling", javelinInfo, 5, "aa-javelin.png", new Point(100, 300)));
+        availableTools.add(new Tool("Sword", "of sleep", swordInfo, 5, "aa-sword.png", new Point(300, 300)));
+        availableTools.add(new Tool("Slingshot", "of socializing", slingInfo, 5, "aa-slingshot.png", new Point(100, 400)));
+
 
         getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("SPACE"), "next");
         getActionMap().put("next", new AbstractAction() {
@@ -170,8 +221,8 @@ public class Level2 extends JPanel {
      */
     private Tool clickedInAvailableTool(int x, int y) {
         for (Tool t : availableTools) {
-            if (x >= t.getxCord() && x <= (t.getxCord() + t.getxSize()) &&
-                    y >= t.getyCord() && y <= (t.getyCord() + t.getySize())) {
+            if (x >= t.getCords().getX() && x <= ( t.getCords().getX() + t.getxSize()) &&
+                    y >= t.getCords().getY() && y <= (t.getCords().getY() + t.getySize())) {
                 // we have hit the tool
                 return t;
             }
@@ -201,8 +252,7 @@ public class Level2 extends JPanel {
     private void drawAvailableTools(Graphics g) {
         for (Tool t : availableTools) {
             g.setColor(t.getColor());
-            g.fillRect(t.getxCord(), t.getyCord(), t.getxSize(), t.getySize());
-            g.drawString(t.getName(), t.getxCord(), t.getyCord());
+            g.fillRect((int)(t.getCords().getX()), (int)(t.getCords().getY()), t.getxSize(), t.getySize());
         }
     }
 

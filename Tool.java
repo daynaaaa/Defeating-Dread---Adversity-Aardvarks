@@ -25,9 +25,9 @@ public class Tool {
     /**
      * color of the weapon, will be replaced with an image
      */
-    private Color color;
+    private final String filename;
 
-    private int xCord, yCord;
+    private Point location;
     private int xSize = 50, ySize = 50;
 
 
@@ -38,34 +38,23 @@ public class Tool {
      * @param t task string
      * @param d damage int
      */
-    public Tool(String n, String i, ArrayList t, int d, Color c, int x, int y) {
+    public Tool(String n, String i, ArrayList t, int d, String fn, Point l) {
         name = n;
         info = i;
         task = t;
         damage = d;
-        color = c;
-        xCord = x;
-        yCord = y;
+        filename=fn;
+        location =l;
     }
 
     /**
-     * get xCord
-     * used to draw the shape
+     * get coordinates
+     * used to draw the tool
      *
-     * @return xCord as int
+     * @return location as a Point
      */
-    public int getxCord() {
-        return xCord;
-    }
-
-    /**
-     * get yCord
-     * used to draw the shape
-     *
-     * @return yCord as int
-     */
-    public int getyCord() {
-        return yCord;
+    public Point getCords() {
+        return location;
     }
 
     /**
@@ -75,7 +64,7 @@ public class Tool {
      * @return color as Color
      */
     public Color getColor() {
-        return color;
+        return Color.DARK_GRAY;
     }
 
     /**
