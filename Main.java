@@ -3,21 +3,25 @@
  * Teacher: Ms. Krasteva
  * Date: May 16, 2022
  * Desc: "Main" class that runs the game
- * <p>
+ *
  * Version #1 May 16 - May 20 - [2.5 hrs]:
- * Danya - implemented if statements to decide what screen to show next
- * Also made the quit button work
+ *    Danya - implemented if statements to decide what screen to show next
+ *    Also made the quit button work
  * Version #2 May 24 - May 27 - [2 hrs]:
- * Danya - added splash screen and l3
- * fix problem with while loop
+ *    Danya - added splash screen and l3
+ *    fix problem with while loop
  * Version #3 June 2 - [1 hrs]:
  *    Danya - added level 2 and 3
+ *    
  */
-
 import java.util.*;
 import java.io.*;
 import javax.swing.*;
+import javax.imageio.*;
+import java.net.*;
 import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
 
 public class Main extends JPanel {
     /**the user's choice*/
@@ -26,8 +30,8 @@ public class Main extends JPanel {
     public static JPanel current;
     /**the current frame*/
     public static JFrame frame;
-    //public static Graphics2D graphics;
-
+    /** This Graphics2D variable holds the graphics that are being drawn. */
+    public static Graphics2D graphics;
     /**
      * initialize the frame
      */
@@ -42,7 +46,23 @@ public class Main extends JPanel {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
+     /**
+     * Get the image from the file
+     *
+     * @param path image path
+     * @return the image
+     */
+    public static BufferedImage imageFromFile(String path) {
+        try {
+            URL resource = Main.class.getClassLoader().getResource(path);
+            if (resource == null) throw new NullPointerException();
+            return ImageIO.read(resource);
+        } catch (IOException | NullPointerException e) {
+            System.err.println("There was an error retrieving " + path);
 
+        }
+        return null;
+    }
     /**
      * Run the game
      */
