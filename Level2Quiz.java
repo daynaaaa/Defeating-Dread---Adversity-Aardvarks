@@ -24,20 +24,23 @@ public class Level2Quiz extends JPanel {
             public void mousePressed(MouseEvent e) {
                 int x = e.getX();
                 int y = e.getY();
-                mousePressed = true;
                 if (x >= 25 && x <= 25 + 300) {
                     if (y >= 150 && y <= 150 + 75 && count != -1) {
+                        mousePressed = true;
                         optionChosen = 0;
+                        repaint();
                     }
                     if (y >= 250 && y <= 250 + 75 && count != -1) {
+                        mousePressed = true;
                         optionChosen = 1;
+                        repaint();
                     }
                     if (y >= 350 && y <= 350 + 75 && count != -1) {
+                        mousePressed = true;
                         optionChosen = 2;
+                        repaint();
                     }
-                    repaint();
-                }
-                else if(count>=0 && count<qs.size())
+                } else if (count >= 0 && count < qs.size())
                     count--;
             }
 
@@ -148,9 +151,12 @@ public class Level2Quiz extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Toolkit t = Toolkit.getDefaultToolkit();
-        Image i = t.getImage("aa background 1_00_00.jpg");
-        g.drawImage(i, 0, 0, this);
+        Image bg = t.getImage("aa background 1_00_00.jpg");
+        g.drawImage(bg, 0, 0, this);
+        Image ps = t.getImage("PlayerSad.png");
+        g.drawImage(ps, 410, 200, this);
 
+        Color gray = new Color(110, 110, 110);
         g.setColor(Color.DARK_GRAY);
         g.fillRoundRect(25, 25, 750, 100, 25, 25);
         g.setColor(Color.WHITE);
@@ -164,8 +170,10 @@ public class Level2Quiz extends JPanel {
             if (mousePressed && optionChosen == qs.get(count).answerIndex && optionChosen == 0) {
                 g.setColor(optionCorrect);
                 score++;
-            } else if (mousePressed && optionChosen != qs.get(count).answerIndex && optionChosen == 0)
+            } else if (mousePressed && optionChosen != qs.get(count).answerIndex && optionChosen == 0) {
+                g.drawImage(ps, 410, 200, this);
                 g.setColor(optionIncorrect);
+            }
             g.fillRoundRect(25, 150, 300, 75, 50, 50);
 
             g.setColor(Color.DARK_GRAY);
@@ -192,7 +200,8 @@ public class Level2Quiz extends JPanel {
         if (count == qs.size() && score < 5) {
             g.drawString("Great try, but let's try one more time and make sure we get them all right!", 20, 20);
             count = -1;
-        } else if(count >= qs.size() && score == 5){
+        } else if (count == qs.size() && score == 5) {
+            //System.out.println("GOT 100%");
             g.drawString("Amazing job! Looks you know your stuff, little sibling.\nLet's start fighting those monsters!", 20, 20);
         }
         optionChosen = -1;
