@@ -69,22 +69,23 @@ public class Level3 extends JPanel{
          //cT.get(0).getName();
          health = 10;
          monNum = 1;
-         m = new Monster(health, "AnxietyMonsterBlue.png");
+         
          chosenTools = cT;
          end = false;
          isDialogue = true;
          taskComplete = true;
-         monsters = new String[]{"AnxietyMonsterBlue.png", "AnxietyMonsterGreen.png", "AnxietyMonsterPurple.png", "AnxietyMonsterRed.png", "AnxietyMonsterYellow.png"};
+         monsters = new String[]{"aaMonster_Blue.png", "aaMonster_Green.png", "aaMonster_Purple.png"};
+         m = new Monster(health, monsters[monNum-1]);
          getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("SPACE"), "next");
          getActionMap().put("next", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(isDialogue)count++;
-                //System.out.println(isDialogue);
-                else if(isTask)taskComplete = true;
-                /*else {
+                if(isDialogue){
+                  count++;
+                }
+                else if(isTask&&!m.isDefeated()){
                   taskComplete = true;
-                }*/
+                }
                 repaint();
             }
          });
@@ -207,34 +208,43 @@ public class Level3 extends JPanel{
                isMonster = true;
                
                //monster:
-               //g.fillRect(500, 100, 260, 350);
+               //260 x 350
                g.drawImage(m.getImage(), 500, 100, null);
 
+               if(m.isDefeated()){
+                  g.setColor(Color.WHITE);
+                  g.drawString("Congrats! You have defeated Monster #"+monNum, 500, 10);
+               }
+               else{
+                  g.setColor(Color.RED);   
+                  g.fillRect(500, 50, 260, 20);
+                  g.setColor(Color.GREEN);
+                  g.fillRect(500, 50, (int)(m.getHealth()/(monNum*10.0)*260), 20);
+                  g.setColor(Color.WHITE);  
+                  g.drawString("Monster number: " + monNum, 500, 10);
+                  g.drawString("Health: " + health, 500, 30);
+                  isDialogue = false;
+               }
                
-               g.setColor(Color.RED);   
-               g.fillRect(500, 50, 260, 20);
-               g.setColor(Color.GREEN);
-               g.fillRect(500, 50, (int)(m.getHealth()/(monNum*10.0)*260), 20);
-               g.setColor(Color.WHITE);  
-               g.drawString("Monster number: " + monNum, 500, 10);
-               g.drawString("Health: " + health, 500, 30);
-               isDialogue = false;
-               
-               if(toolChosen&& monNum <= 5){
+               if(toolChosen&& monNum <= 3){
                   isTask = true;
+                  System.out.println("task");
                   if(taskComplete){
-                  //System.out.println(m.getHealth());
-                  if(m.fight(currentTool)&&monNum != 5){
+                  System.out.println("taskComplete");
+                  m.fight(currentTool);
+                  repaint();
+                  if(m.isDefeated()&&monNum!=3){
                         monNum++;
                         health = monNum * 10;
-                        m = new Monster(health, monsters[monNum]);
+                        m = new Monster(health, monsters[monNum-1]);
+                        
                   }
                   else health = m.getHealth();
                   toolChosen = false;
-                  System.out.println(m.getHealth());
+                  
                   }
                }
-               else if (monNum == 5) count++;
+               else if (monNum == 3&& m.isDefeated()) count++;
                 
                //isDialogue = true;
                break;
