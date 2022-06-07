@@ -10,7 +10,8 @@
  *    Danya - added squares to represent the characters and the tools
  *    Added the function to view the tools details
  *    Also implemented fighting the monster
- *
+ * Version #3 May 27 - June 3 - [2 hrs]:
+ *    Danya - fixed bugs in fighting the monster, such as pressing space to continue
  */
 
 import java.util.*;
@@ -153,8 +154,11 @@ public class Level3 extends JPanel{
         //Main.graphics = (Graphics2D) g;
         super.paintComponent(g);
         
-        Color backgroundColour = new Color(46, 23, 110);
-        setBackground(backgroundColour);
+        //Color backgroundColour = new Color(46, 23, 110);
+        //setBackground(backgroundColour);
+        Image bg = Main.imageFromFile("background3revised.jpg");
+        g.drawImage(bg, 0,0,this);
+
         g.setColor(Color.WHITE);
         //g.fillRect(20, 200, 130, 250);
         g.fillRect(170, 370, 80, 80);
@@ -175,6 +179,8 @@ public class Level3 extends JPanel{
            for(int i = 0;i < currentTool.getTask().size();i++){
                g.drawString(currentTool.getTask().get(i), 20, i*20+40);
            }
+           g.drawString("Press space once you have done this task...", 20, currentTool.getTask().size()*20+40);
+
            
         }
         else if(tool == 2){
