@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
  * Date: May 16, 2022
- * Desc: "Menu" class for the menu where the user can choose to play the game, go to instructions, or quit the game
+ * Desc: "Tool" class for each of the tools
  * <p>
  * Version #1 May 16 - May 20 - [0.5 hr]:
  * Mya - created preliminary Tool class with some methods
