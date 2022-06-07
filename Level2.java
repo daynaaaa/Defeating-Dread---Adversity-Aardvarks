@@ -27,6 +27,7 @@ import java.awt.event.MouseEvent;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+
 public class Level2 extends JPanel {
     /**
      * monster
@@ -120,14 +121,14 @@ public class Level2 extends JPanel {
         netInfo.add("To use this tool, decide on a healthy meal.");
         netInfo.add("Continue when you have a plan for what you will eat");
 
-        availableTools.add(new Tool("Dagger", "of deep breaths", daggerInfo, 5,"aa-dagger.png", new Point(100, 100)));
-        availableTools.add(new Tool("Scepter", "of support", sceptreInfo, 5, "aa-septer.png", new Point(100, 200)));
-        availableTools.add(new Tool("Elixir", "of exercise ", elixirInfo, 5, "aa-potion.png", new Point(200, 100)));
-        availableTools.add(new Tool("Net", "of nutrition", netInfo, 5, "aa-net.png", new Point(200, 200)));
-        availableTools.add(new Tool("Cloak", "of communication", cloakInfo, 5, "aa-cloak.png", new Point(300, 100)));
-        availableTools.add(new Tool("Javelin", "of journaling", javelinInfo, 5, "aa-javelin.png", new Point(100, 300)));
-        availableTools.add(new Tool("Sword", "of sleep", swordInfo, 5, "aa-sword.png", new Point(300, 300)));
-        availableTools.add(new Tool("Slingshot", "of socializing", slingInfo, 5, "aa-slingshot.png", new Point(100, 400)));
+        availableTools.add(new Tool("Dagger", "of deep breaths", daggerInfo, 5,"aa-dagger.png", new Point(140-25, 405)));
+        availableTools.add(new Tool("Scepter", "of support", sceptreInfo, 5, "aa-septer.png", new Point(255-25, 140)));
+        availableTools.add(new Tool("Elixir", "of exercise ", elixirInfo, 5, "aa-potion.png", new Point(360-25, 410)));
+        availableTools.add(new Tool("Cloak", "of communication", cloakInfo, 5, "aa-cloak.png", new Point(640-25, 368)));
+        availableTools.add(new Tool("Javelin", "of journaling", javelinInfo, 5, "aa-javelin.png", new Point(675-25, 110)));
+        availableTools.add(new Tool("Sword", "of sleep", swordInfo, 5, "aa-sword.png", new Point(530, 201)));
+        availableTools.add(new Tool("Slingshot", "of socializing", slingInfo, 5, "aa-slingshot.png", new Point(50-25, 55)));
+        availableTools.add(new Tool("Net", "of nutrition", netInfo, 5, "aa-net.png", new Point(5-25, 330)));
 
 
         getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("SPACE"), "next");
@@ -144,6 +145,7 @@ public class Level2 extends JPanel {
             public void mouseClicked(MouseEvent e) {
                 x = e.getX();
                 y = e.getY();
+                System.out.println(x+" "+y);
                 collectTool(x, y);
             }
         });
@@ -157,8 +159,9 @@ public class Level2 extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Color backgroundColour = new Color(46, 23, 110);
-        setBackground(backgroundColour);
+        //Color backgroundColour = new Color(46, 23, 110);
+        //setBackground(backgroundColour);
+        g.drawImage(Main.imageFromFile("background1revised.jpg"), 0, 0, null);
         //System.out.println(end);
         g.setColor(Color.WHITE);
         switch (count) {
@@ -252,7 +255,7 @@ public class Level2 extends JPanel {
     private void drawAvailableTools(Graphics g) {
         for (Tool t : availableTools) {
             g.setColor(t.getColor());
-            g.fillRect((int)(t.getCords().getX()), (int)(t.getCords().getY()), t.getxSize(), t.getySize());
+            g.drawImage(t.getToolImg().getScaledInstance(60, -1, Image.SCALE_DEFAULT), (int)t.getCords().getX(), (int)t.getCords().getY(), this);
         }
     }
 

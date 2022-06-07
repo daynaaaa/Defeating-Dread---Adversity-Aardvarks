@@ -30,7 +30,8 @@ public class SplashScreen extends JPanel implements ActionListener {
     /**
      * speed and stating x for animation
      */
-    int x = 0, speed = 25;
+    int x = 800, speed = 25;
+
 
     /**
      * animates the square/aardvark
@@ -39,7 +40,7 @@ public class SplashScreen extends JPanel implements ActionListener {
      * @Override
      */
     public void actionPerformed(ActionEvent arg) {
-        if (x < 800) x += speed;
+        if (x > -100) x -= speed;
         else a = true;
         repaint();
     }
@@ -70,8 +71,7 @@ public class SplashScreen extends JPanel implements ActionListener {
         setBackground(backgroundColour);
         g.setColor(Color.GREEN);
         g.fillRect(0, 400, 800, 100);
-        g.setColor(new Color(159, 84, 43)); //brown like an aardvark hehe
-        g.fillOval(x, 360, 70, 70);
+        g.drawImage(Main.imageFromFile("adverbNobackground.png").getScaledInstance(100, -1, Image.SCALE_DEFAULT), x, 360, this);
         tm.start();
         g.setColor(Color.ORANGE);
         g.fillOval(700, -50, 200, 200);

@@ -12,7 +12,7 @@
  *    fix problem with while loop
  * Version #3 June 2 - [1 hrs]:
  *    Danya - added level 2 and 3
- *    
+ *
  */
 import java.util.*;
 import java.io.*;
@@ -46,7 +46,7 @@ public class Main extends JPanel {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
-     /**
+    /**
      * Get the image from the file
      *
      * @param path image path

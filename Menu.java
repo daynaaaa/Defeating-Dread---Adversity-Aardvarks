@@ -87,7 +87,7 @@ public class Menu extends JPanel {
         super.paintComponent(g);
         Color backgroundColour = new Color(46, 23, 110);
         setBackground(backgroundColour);
-        g.setColor(Color.BLACK);
+        g.drawImage(Main.imageFromFile("backgroundmenu.jpg"), 0, 0, null);
         g.fillRect(250, 150, 300, 80);
         g.fillRect(250, 240, 300, 80);
         g.fillRect(250, 330, 300, 80);

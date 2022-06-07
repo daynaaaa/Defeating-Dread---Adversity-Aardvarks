@@ -25,7 +25,7 @@ public class Tool {
     /**
      * color of the weapon, will be replaced with an image
      */
-    private final String filename;
+    private Image toolImg;
 
     private Point location;
     private int xSize = 50, ySize = 50;
@@ -43,8 +43,16 @@ public class Tool {
         info = i;
         task = t;
         damage = d;
-        filename=fn;
+        toolImg = Main.imageFromFile(fn);
         location =l;
+    }
+
+    /**
+     * gets the image
+     * @return the tool as an Image
+     */
+    public Image getToolImg() {
+        return toolImg;
     }
 
     /**
