@@ -3,42 +3,58 @@
  * Teacher: Ms. Krasteva
  * Date: May 16, 2022
  * Desc: "Monster" class that creates a monster with parameters
- *
+ * <p>
  * Version #1 May 16 - May 20 - [0.5 hrs]:
- *    Mya - created preliminary Monster class with some methods
- *
+ * Mya - created preliminary Monster class with some methods
+ * Version #2 June 6 - [1 hrs]:
+ * Danya - change some parameters for functionality purposes 
  */
-
+import java.util.*;
+import java.io.*;
+import javax.swing.*;
+import javax.imageio.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
 public class Monster {
-    /**
-     * damage
-     */
-    private final int damage;
     /**
      * starting health
      */
     private int health;
-
+    private Image monster;
     /**
      * constructor with parameters
      *
-     * @param d damage
      * @param h health
+     * @param mName name of monster image file
      */
-    public Monster(int d, int h){
-        damage=d;
-        health=h;
-    }
+    public Monster(int h, String mName) {
+        health = h;
+        monster = Main.imageFromFile(mName);
 
+    }
+    /**get Monster image
+     *@return image of monster
+     */
+    public Image getImage(){
+      return monster;
+    }
     /**
      * decrement health when fighting
      *
      * @param amt
      */
-    public void decrease(int amt){
-        health-=amt;
+    public void decrease(int amt) {
+        health -= amt;
     }
 
+    /**
+     * @return health
+     */
+    public int getHealth() {
+        return health;
+    }
+      
     /**
      * fight the monster
      *
@@ -46,8 +62,7 @@ public class Monster {
      * @return true if the monster is defeated
      */
     public boolean fight(Tool tool) {
-        System.out.println("\nfighting:");
         this.decrease(tool.getDamage());
-        return health<=0;
+        return health <= 0;
     }
 }

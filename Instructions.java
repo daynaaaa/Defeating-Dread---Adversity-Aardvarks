@@ -73,17 +73,17 @@ public class Instructions extends JPanel {
         g.drawString("Instructions", 150, 30);
         g.setFont(new Font("Arial", Font.PLAIN, 15));
         g.drawString("Level 1: Deficiencies Room", 150, 70);
-        g.drawString("In this level, you will learn about anxiety and how it might be affecting you.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 150, 90);
+        g.drawString("In this level, you will learn about anxiety and how it might be affecting you.", 150, 90);
         g.drawString("Read and click through all of the information that will be provided", 150, 110);
         g.drawString("Level 2: Panic Room", 150, 130);
         g.drawString("In this level, you will be able to look at some possible tools that you can use", 150, 150);
-        g.drawString("to defeat the monsters. You�ll get to see a lot of choices, but you can only pick", 150, 170);
+        g.drawString("to defeat the monsters. You'll get to see a lot of choices, but you can only pick", 150, 170);
         g.drawString("the 3 that you think will be the best for you. ", 150, 190);
         g.drawString("Look for the tools hidden on the screen and click on them to learn/equip", 150, 210);
         g.drawString("Use those tools to help you fight your anxiety in the form of monsters.", 150, 230);
         g.drawString("To use those tools, you will have to complete a task", 150, 250);
         g.drawString("Level 3: Escape Room", 150, 270);
-        g.drawString("On this final level, you�ll be able to use your tools to help you defeat your anxiety,", 150, 290);
+        g.drawString("On this final level, you'll be able to use your tools to help you defeat your anxiety,", 150, 290);
         g.setFont(new Font("SansSerif", Font.BOLD, 20));
         g.drawString("back", 330, 370);
     }
