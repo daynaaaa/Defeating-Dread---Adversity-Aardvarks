@@ -3,20 +3,21 @@
  * Teacher: Ms. Krasteva
  * Date: May 25, 2022
  * Desc: "SplashScreen" class that will run the splash screen when called
- *
+ * <p>
  * Version #1 May 25 - May 27 - [15 mins]:
- *    Danya - framework and exiting
- * Version #1 May 25 - May 27 - [0.5 hrs]:
- *    Mya - preliminaty animation
- *
+ * Danya - framework and exiting
+ * Version #2 May 25 - May 27 - [0.5 hrs]:
+ * Mya - preliminaty animation
+ * Version #3 May 27 - June 3 - [0.5 hrs]:
+ * Mya - fixed final animation and stylistic changes
  */
 
-//import java.util.*;
 import java.io.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class SplashScreen extends JPanel implements ActionListener{
+
+public class SplashScreen extends JPanel implements ActionListener {
     /**
      * if the splash screen is over
      */
@@ -24,67 +25,67 @@ public class SplashScreen extends JPanel implements ActionListener{
     /**
      * timer for animation
      */
-    Timer tm;
+    Timer tm = new Timer(100, this);
+
     /**
      * speed and stating x for animation
      */
-    int x=0, speed=2;
+    int x = 0, speed = 25;
 
     /**
      * animates the square/aardvark
      *
      * @param arg
      * @Override
-    */
-    public void actionPerformed(ActionEvent arg){
-       x+=speed;
-       repaint();
+     */
+    public void actionPerformed(ActionEvent arg) {
+        if (x < 800) x += speed;
+        else a = true;
+        repaint();
     }
 
     /**
      * runs the splashscreen
      */
-    public SplashScreen(){
+    public SplashScreen() {
         getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("SPACE"), "next");
         getActionMap().put("next", new AbstractAction() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               a=true;
-               repaint();
-           }
-        });      
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                a = true;
+                repaint();
+            }
+        });
     }
+
     /**
      * Draw the graphics
      *
      * @param g the graphics to be drawn
      */
     @Override
-    public void paintComponent(Graphics g)
-    {
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Color backgroundColour = new Color(46, 23, 110);
+        Color backgroundColour = new Color(113, 189, 217);
         setBackground(backgroundColour);
+        g.setColor(Color.GREEN);
+        g.fillRect(0, 400, 800, 100);
         g.setColor(new Color(159, 84, 43)); //brown like an aardvark hehe
-        g.fillRect(x, 30, 50, 50);
-        tm=new Timer(100, this);
+        g.fillOval(x, 360, 70, 70);
         tm.start();
-        if(x<750) {
-            x++;
-            //System.out.println("x is less than 800");
-        }
-        
-        //System.out.println(x);
+        g.setColor(Color.ORANGE);
+        g.fillOval(700, -50, 200, 200);
+
     }
-    
+
     /**
      * update the graphics/start
      */
     public void start() {
         revalidate();
         repaint();
-        while (!a);
+        while (!a) ;
     }
 
-    
+
 }

@@ -80,10 +80,10 @@ public class Main extends JPanel{
                   current=l2;
                   //level 3
                   frame.remove(current);
-                  Level3 l3 = new Level3();
-                  frame.add(l3);
-                  l3.start3();
-                  current=l3;
+//                  Level3 l3 = new Level3();
+//                  frame.add(l3);
+//                  l3.start3();
+//                  current=l3;
                   break;
                case 2:
                   frame.remove(current);

@@ -13,7 +13,9 @@
 import java.util.ArrayList;
 
 public class Talk {
-    /** message for typing*/
+    /**
+     * message for typing
+     */
     private ArrayList<String> message;
 
     /**
@@ -27,7 +29,6 @@ public class Talk {
 
     /**
      * prints out text from given arraylist
-     *
      */
     public void talking() {
         System.out.println("talking:\n");

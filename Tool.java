@@ -28,7 +28,7 @@ public class Tool {
     private Color color;
 
     private int xCord, yCord;
-    private int xSize=50, ySize=50;
+    private int xSize = 50, ySize = 50;
 
 
     /**
@@ -43,9 +43,9 @@ public class Tool {
         info = i;
         task = t;
         damage = d;
-        color=c;
-        xCord=x;
-        yCord=y;
+        color = c;
+        xCord = x;
+        yCord = y;
     }
 
     /**
@@ -54,14 +54,19 @@ public class Tool {
      *
      * @return xCord as int
      */
-    public int getxCord(){return xCord;}
+    public int getxCord() {
+        return xCord;
+    }
+
     /**
      * get yCord
      * used to draw the shape
      *
      * @return yCord as int
      */
-    public int getyCord(){return yCord;}
+    public int getyCord() {
+        return yCord;
+    }
 
     /**
      * get color
@@ -69,7 +74,10 @@ public class Tool {
      *
      * @return color as Color
      */
-    public Color getColor(){return color;}
+    public Color getColor() {
+        return color;
+    }
+
     /**
      * get name
      *
@@ -106,8 +114,13 @@ public class Tool {
         return damage;
     }
 
-    public int getxSize(){return xSize;}
-    public int getySize(){return ySize;}
+    public int getxSize() {
+        return xSize;
+    }
+
+    public int getySize() {
+        return ySize;
+    }
 
 
 }
