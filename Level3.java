@@ -155,7 +155,7 @@ public class Level3 extends JPanel{
     {
         super.paintComponent(g);
         
-        Image bg = Main.imageFromFile("background3revised.jpg");
+        Image bg = Main.imageFromFile("background3revised.jpeg");
         g.drawImage(bg, 0,0,this);
         g.drawImage(chosenTools.get(0).getToolImg().getScaledInstance(60, -1, Image.SCALE_DEFAULT), 170, 370, this);
         g.drawImage(chosenTools.get(1).getToolImg().getScaledInstance(60, -1, Image.SCALE_DEFAULT), 270, 370, this);
@@ -213,7 +213,7 @@ public class Level3 extends JPanel{
                g.drawString("way out of this forest, but watch out for the monsters!", 20, 100);
                break;
             case 3:
-               g.drawString("Good luck! I won’t be able to help you anymore, but I believe", 20, 70);
+               g.drawString("Good luck! I wonÂ’t be able to help you anymore, but I believe", 20, 70);
                g.drawString("in you! Click on each tool to use them on the monsters.", 20, 100);
                break;
             case 4:
