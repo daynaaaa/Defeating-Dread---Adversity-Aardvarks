@@ -37,7 +37,6 @@ public class Menu extends JPanel {
             public void mousePressed(MouseEvent e) {
                 x = e.getX();
                 y = e.getY();
-                System.out.println(x + " " + y);
                 //if buttons stuff
                 if (x >= 250 && x <= 550) {
                     if (y >= 150 && y <= 230) {
@@ -85,8 +84,6 @@ public class Menu extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Color backgroundColour = new Color(46, 23, 110);
-        setBackground(backgroundColour);
         g.drawImage(Main.imageFromFile("backgroundmenu.jpg"), 0, 0, null);
         g.fillRect(250, 150, 300, 80);
         g.fillRect(250, 240, 300, 80);
