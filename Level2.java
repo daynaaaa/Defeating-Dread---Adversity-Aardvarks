@@ -70,16 +70,20 @@ public class Level2 extends JPanel {
         end = false;
         isDialogue = true;
         ArrayList<String> daggerInfo = new ArrayList<>();
+        Tool dagger = new Tool("Dagger", "of deep breaths", daggerInfo, 8,"aa-dagger.png", new Point(140-25, 405));
         daggerInfo.add("Deep breathing can help you control your anxiety");
         daggerInfo.add("Deep breathing tells your nervous system to relax");
         daggerInfo.add("To use this tool, practice some deep breathing");
+        daggerInfo.add("This tool will do "+dagger.getDamage()+" damage to your anxiety");
         daggerInfo.add("In...2...3...4... Out...2...3...4... ");
 
         ArrayList<String> sceptreInfo = new ArrayList<>();
+        Tool scepter = new Tool("Scepter", "of support", sceptreInfo, 7, "aa-septer.png", new Point(255-25, 140));
         sceptreInfo.add("At school, there are counsellors and administrators trained to help you");
         sceptreInfo.add("spot the roots of your anxiety and give you a range of strategies to deal with them.");
         sceptreInfo.add("It may be scary at first, but they are there for you and it is definitely worth a try.");
         sceptreInfo.add("To use this tool, identify some people who are there to support you.");
+        sceptreInfo.add("This tool will do "+scepter.getDamage()+" damage to your anxiety");
         sceptreInfo.add("Come up with 3 people around you who are ready to help");
 
         ArrayList<String> cloakInfo = new ArrayList<>();
@@ -121,15 +125,14 @@ public class Level2 extends JPanel {
         netInfo.add("To use this tool, decide on a healthy meal.");
         netInfo.add("Continue when you have a plan for what you will eat");
 
-        availableTools.add(new Tool("Dagger", "of deep breaths", daggerInfo, 5,"aa-dagger.png", new Point(140-25, 405)));
-        availableTools.add(new Tool("Scepter", "of support", sceptreInfo, 5, "aa-septer.png", new Point(255-25, 140)));
-        availableTools.add(new Tool("Elixir", "of exercise ", elixirInfo, 5, "aa-potion.png", new Point(360-25, 410)));
-        availableTools.add(new Tool("Cloak", "of communication", cloakInfo, 5, "aa-cloak.png", new Point(640-25, 368)));
+        availableTools.add(dagger);
+        availableTools.add(scepter);
+        availableTools.add(new Tool("Elixir", "of exercise ", elixirInfo, 6, "aa-potion.png", new Point(360-25, 410)));
+        availableTools.add(new Tool("Cloak", "of communication", cloakInfo, 3, "aa-cloak.png", new Point(640-25, 368)));
         availableTools.add(new Tool("Javelin", "of journaling", javelinInfo, 5, "aa-javelin.png", new Point(675-25, 110)));
-        availableTools.add(new Tool("Sword", "of sleep", swordInfo, 5, "aa-sword.png", new Point(530, 201)));
-        availableTools.add(new Tool("Slingshot", "of socializing", slingInfo, 5, "aa-slingshot.png", new Point(50-25, 55)));
-        availableTools.add(new Tool("Net", "of nutrition", netInfo, 5, "aa-net.png", new Point(5-25, 330)));
-
+        availableTools.add(new Tool("Sword", "of sleep", swordInfo, 6, "aa-sword.png", new Point(530, 201)));
+        availableTools.add(new Tool("Slingshot", "of socializing", slingInfo, 4, "aa-slingshot.png", new Point(50-25, 55)));
+        availableTools.add(new Tool("Net", "of nutrition", netInfo, 3, "aa-net.png", new Point(5-25, 330)));
 
         getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("SPACE"), "next");
         getActionMap().put("next", new AbstractAction() {
