@@ -22,8 +22,13 @@ public class Level1 extends JPanel {
     private ArrayList<Integer> lessonX;
     private ArrayList<Integer> lessonY;
     private ArrayList<Integer> lessonFont;
+    /**
+     * If the level has ended
+     */
+    private volatile boolean end;
 
     public Level1() {
+        end = false;
         lesson = new ArrayList<>();
         lessonX = new ArrayList<>();
         lessonY = new ArrayList<>();
@@ -38,6 +43,7 @@ public class Level1 extends JPanel {
                     repaint();
                     if(count<lesson.size()-1)
                         count++;
+                    else end = true;
                     System.out.println(count);
                 }
             }
@@ -74,18 +80,6 @@ public class Level1 extends JPanel {
         g.drawString("Go Back",128,321);
         g.setFont(new Font("Courier", Font.BOLD, lessonFont.get(count)));
         g.drawString(lesson.get(count), lessonX.get(count), lessonY.get(count));
-    }
-
-    public static void main(String[] hallo) {
-        Level1 l1 = new Level1();
-        JFrame f = new JFrame("hallooo");
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.add(l1);
-        f.pack();
-        f.setSize(800, 500);
-        f.setResizable(false);
-        f.setLocationRelativeTo(null);
-        f.setVisible(true);
     }
 
     private void fillArrayList() {
@@ -231,5 +225,13 @@ public class Level1 extends JPanel {
         lessonX.add(25);
         lessonY.add(25);
         lessonFont.add(20);
+    }
+    /**
+     * update the graphics
+     */
+    public void start1() {
+        revalidate();
+        repaint();
+        while (!end) ;
     }
 }
