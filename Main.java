@@ -118,6 +118,13 @@ public class Main extends JPanel {
                            frame.add(l3);
                            l3.start3();
                            current = l3;
+                           //winning screen
+                           frame.remove(current);
+                           WinningScreen ws = new WinningScreen();
+                           frame.add(ws);
+                           ws.updateC();
+                           current = ws;
+
                        }
                     }
                     break;
