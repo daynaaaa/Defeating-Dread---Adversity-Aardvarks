@@ -152,7 +152,7 @@ public class Level2Quiz extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Toolkit t = Toolkit.getDefaultToolkit();
-        Image bg = t.getImage("background2revised.jpeg");
+        Image bg = t.getImage("background2revised.jpg");
         g.drawImage(bg, 0, 0, this);
         Image ps = t.getImage("PlayerSad.png");
         g.drawImage(ps, 410, 200, this);
