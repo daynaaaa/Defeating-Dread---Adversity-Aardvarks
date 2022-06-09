@@ -47,7 +47,8 @@ public class Level2Quiz extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                count++;
+                if(count<qs.size())
+                    count++;
                 repaint();
                 mousePressed = false;
             }
@@ -151,7 +152,7 @@ public class Level2Quiz extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Toolkit t = Toolkit.getDefaultToolkit();
-        Image bg = t.getImage("aa background 1_00_00.jpg");
+        Image bg = t.getImage("background2revised.jpeg");
         g.drawImage(bg, 0, 0, this);
         Image ps = t.getImage("PlayerSad.png");
         g.drawImage(ps, 410, 200, this);
@@ -195,13 +196,18 @@ public class Level2Quiz extends JPanel {
             g.setColor(Color.WHITE);
             g.setFont(new Font("Courier", Font.BOLD, qs.get(count).questionF));
             g.drawString(qs.get(count).question, 75, 75);
+            g.drawString(qs.get(count).options[0],30,150);
+            g.drawString(qs.get(count).options[1],30,250);
+            g.drawString(qs.get(count).options[2],30,350);
+
         }
 
         if (count == qs.size() && score < 5) {
             g.drawString("Great try, but let's try one more time and make sure we get them all right!", 20, 20);
             count = -1;
+            score  = 0;
         } else if (count == qs.size() && score == 5) {
-            //System.out.println("GOT 100%");
+            System.out.println("GOT 100%");
             g.drawString("Amazing job! Looks you know your stuff, little sibling.\nLet's start fighting those monsters!", 20, 20);
         }
         optionChosen = -1;
