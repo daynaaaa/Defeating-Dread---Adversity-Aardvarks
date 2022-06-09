@@ -86,7 +86,7 @@ public class Level1 extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Toolkit t = Toolkit.getDefaultToolkit();
-        Image i = t.getImage("background1revised.jpeg");
+        Image i = t.getImage("background1revised.jpg");
         g.drawImage(i, 0, 0, this);
         Image ps = t.getImage("PlayerSadFlipped.png");
         g.drawImage(ps, 410, 200, this);
