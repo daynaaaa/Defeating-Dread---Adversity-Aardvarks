@@ -64,7 +64,7 @@ public class Instructions extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(Main.imageFromFile("backgroundmenu.jpeg"), 0, 0, null);
+        g.drawImage(Main.imageFromFile("backgroundmenu.jpg"), 0, 0, null);
         g.setColor(Color.BLACK);
         g.fillRect(250, 330, 300, 80);
         g.setColor(Color.WHITE);
