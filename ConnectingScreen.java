@@ -17,7 +17,7 @@ public class ConnectingScreen extends JPanel {
     /**whether the user has made a choice or not*/
     private volatile boolean isChosen;
     /**the user's choice*/
-    private int c;
+    int c;
 
     /**
      * Constructor for the ConnectingScreen class

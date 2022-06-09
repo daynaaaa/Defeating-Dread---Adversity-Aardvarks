@@ -44,11 +44,12 @@ public class Tool {
         task = t;
         damage = d;
         toolImg = Main.imageFromFile(fn);
-        location =l;
+        location = l;
     }
 
     /**
      * gets the image
+     *
      * @return the tool as an Image
      */
     public Image getToolImg() {
@@ -74,7 +75,6 @@ public class Tool {
     public Color getColor() {
         return Color.DARK_GRAY;
     }
-
 
 
     /**
