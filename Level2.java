@@ -190,7 +190,7 @@ public class Level2 extends JPanel {
         super.paintComponent(g);
         //Color backgroundColour = new Color(46, 23, 110);
         //setBackground(backgroundColour);
-        g.drawImage(Main.imageFromFile("background1revised.jpeg"), 0, 0, null);
+        g.drawImage(Main.imageFromFile("background1revised.jpg"), 0, 0, null);
         //System.out.println(end);
         g.setColor(Color.WHITE);
         switch (count) {
