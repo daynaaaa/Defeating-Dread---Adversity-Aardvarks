@@ -10,7 +10,7 @@
  *    Danya - added squares to represent the characters and the tools
  *    Added the function to view the tools details
  *    Also implemented fighting the monster
- * Version #3 May 27 - June 3 - [3 hrs]:
+ * Version #3 June 6 - June 10 - [4 hrs]:
  *    Danya - fixed bugs in fighting the monster, such as pressing space to continue
  */
 
@@ -61,21 +61,22 @@ public class Level3 extends JPanel{
     private int health;
     /*Array of the fileNames of the monsters*/
     private String[] monsters;
+    /* Amount of Monsters*/
+    private final int numMon;
     /**
      * constructor
      *
      * @param cT chosen tools stored
      */
     public Level3(ArrayList<Tool> cT) {
-         //cT.get(0).getName();
          health = 10;
          monNum = 1;
-         
          chosenTools = cT;
          end = false;
          isDialogue = true;
          taskComplete = true;
-         monsters = new String[]{"aaMonster_Blue.png", "aaMonster_Green.png", "aaMonster_Purple.png"};
+         monsters = new String[]{"aaMonster_Blue.png", "aaMonster_Green.png", "aaMonster_Purple.png", "aaMonster_Red.png", "aaMonster_Yellow.png"};
+         numMon = (int)(Math.random()*5+1);
          m = new Monster(health, monsters[monNum-1]);
          getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("SPACE"), "next");
          getActionMap().put("next", new AbstractAction() {
@@ -106,7 +107,6 @@ public class Level3 extends JPanel{
                        else toolChosen = false;
                        currentTool = chosenTools.get(0);
                        tool = 1;
-                       //toolChosen = true;
                        taskComplete = false;
                        repaint();
                    }
@@ -120,9 +120,7 @@ public class Level3 extends JPanel{
 
                        else toolChosen = false;
                        currentTool = chosenTools.get(1);
-
                        tool = 2;
-                       //toolChosen = true;
                        taskComplete = false;
                        repaint();
                    }
@@ -136,7 +134,6 @@ public class Level3 extends JPanel{
                        else toolChosen = false;
                        currentTool = chosenTools.get(2);
                        tool = 3;
-                       //toolChosen = true;
                        taskComplete = false;
                        repaint();
                    }
@@ -155,7 +152,7 @@ public class Level3 extends JPanel{
     {
         super.paintComponent(g);
         
-        Image bg = Main.imageFromFile("background3revised.jpeg");
+        Image bg = Main.imageFromFile("background3revised.jpg");
         g.drawImage(bg, 0,0,this);
         g.drawImage(chosenTools.get(0).getToolImg().getScaledInstance(60, -1, Image.SCALE_DEFAULT), 170, 370, this);
         g.drawImage(chosenTools.get(1).getToolImg().getScaledInstance(60, -1, Image.SCALE_DEFAULT), 270, 370, this);
@@ -182,8 +179,6 @@ public class Level3 extends JPanel{
            g.fillRect(270, 370, 80, 80);
            g.drawImage(chosenTools.get(1).getToolImg().getScaledInstance(60, -1, Image.SCALE_DEFAULT), 270, 370, this);
            g.setColor(Color.WHITE);
-           //Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException: Cannot invoke "Tool.getName()" because "this.currentTool" is null
-
            g.drawString(currentTool.getName()+" " + currentTool.getInfo(), 20, 20);
            for(int i = 0;i < currentTool.getTask().size();i++){
                g.drawString(currentTool.getTask().get(i), 20, i*20+40);
@@ -213,7 +208,7 @@ public class Level3 extends JPanel{
                g.drawString("way out of this forest, but watch out for the monsters!", 20, 100);
                break;
             case 3:
-               g.drawString("Good luck! I wonÂ’t be able to help you anymore, but I believe", 20, 70);
+               g.drawString("Good luck! I won’t be able to help you anymore, but I believe", 20, 70);
                g.drawString("in you! Click on each tool to use them on the monsters.", 20, 100);
                break;
             case 4:
@@ -223,7 +218,7 @@ public class Level3 extends JPanel{
                   g.setColor(Color.WHITE);
                   g.drawString("Congrats! You have", 500, 20);
                   g.drawString("defeated Monster #"+monNum, 500, 40);
-                  if(monNum == 3){
+                  if(monNum == numMon){
                      tool = 0;
                      g.setColor(Color.WHITE);
                      g.drawString("You have defeated your last anxiety monster!", 20, 70);
@@ -243,12 +238,12 @@ public class Level3 extends JPanel{
                   isDialogue = false;
                }
                
-               if(toolChosen&& monNum <= 3){
+               if(toolChosen&& monNum <= numMon){
                   isTask = true;
                   if(taskComplete){
                   m.fight(currentTool);
                   repaint();
-                  if(m.isDefeated()&&monNum!=3){
+                  if(m.isDefeated()&&monNum!=numMon){
                         monNum++;
                         health = monNum * 10;
                         m = new Monster(health, monsters[monNum-1]);
@@ -259,9 +254,7 @@ public class Level3 extends JPanel{
                   
                   }
                }
-               else if (monNum == 3&& m.isDefeated()) count++;
-                
-               //isDialogue = true;
+               else if (monNum == numMon&& m.isDefeated()) count++;
                break;
             case 5:
                isMonster = false;
@@ -279,15 +272,6 @@ public class Level3 extends JPanel{
             default:
             
         }
-        /*if(isMonster){
-            g.setColor(Color.WHITE);   
-            g.fillRect(500, 100, 260, 350);
-            g.setColor(Color.RED);   
-            g.fillRect(500, 50, 260, 20);
-            g.setColor(Color.GREEN);
-            g.fillRect(500, 50, m.getHealth()*26, 20);
-        }*/
-        
     }
     /**
      * update the graphics
