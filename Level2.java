@@ -212,7 +212,7 @@ public class Level2 extends JPanel {
                 displayChosenTools(g);
                 break;
             case 5:
-                g.drawString("good going! next level...", 100, 100);
+                g.drawString("good going! Lets check out what you know with a quiz", 100, 100);
                 break;
             case 6:
                 end = true;

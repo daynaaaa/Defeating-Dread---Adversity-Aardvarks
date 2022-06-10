@@ -106,6 +106,12 @@ public class Main extends JPanel {
                        l2.start2();
                        ArrayList<Tool> cT = l2.returnChosenTools();
                        current = l2;
+                       //quiz
+                        frame.remove(current);
+                        Level2Quiz l2q = new Level2Quiz();
+                        frame.add(l2q);
+                        l2q.startQuiz();
+                        current = l2q;
                        //level 3
                        frame.remove(current);
                        cs = new ConnectingScreen();

@@ -6,17 +6,24 @@ import java.util.*;
 
 public class Level2Quiz extends JPanel {
     private ArrayList<Question> qs;
-    private int count;
+    private int quizCount;
     private int optionChosen;
     private boolean mousePressed;
     private int score;
     Color optionCorrect = new Color(27, 160, 82);
     Color optionIncorrect = new Color(201, 24, 19);
 
+    public boolean isEnd() {
+        return end;
+    }
+
+    // it is important for this to be declared volatile so the while loop will to notice when the value changes
+    private volatile boolean end = false;
+
     public Level2Quiz() {
         qs = new ArrayList<>();
         fillArrayLists();
-        count = -1;
+        quizCount = -1;
         score = 0;
         repaint();
 
@@ -25,30 +32,30 @@ public class Level2Quiz extends JPanel {
                 int x = e.getX();
                 int y = e.getY();
                 if (x >= 25 && x <= 25 + 300) {
-                    if (y >= 150 && y <= 150 + 75 && count != -1) {
+                    if (y >= 150 && y <= 150 + 75 && quizCount != -1) {
                         mousePressed = true;
                         optionChosen = 0;
                         repaint();
                     }
-                    if (y >= 250 && y <= 250 + 75 && count != -1) {
+                    if (y >= 250 && y <= 250 + 75 && quizCount != -1) {
                         mousePressed = true;
                         optionChosen = 1;
                         repaint();
                     }
-                    if (y >= 350 && y <= 350 + 75 && count != -1) {
+                    if (y >= 350 && y <= 350 + 75 && quizCount != -1) {
                         mousePressed = true;
                         optionChosen = 2;
                         repaint();
                     }
-                } else if (count >= 0 && count < qs.size())
-                    count--;
+                } else if (quizCount >= 0 && quizCount < qs.size())
+                    quizCount--;
             }
 
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                if(count<qs.size())
-                    count++;
+                if(quizCount <qs.size())
+                    quizCount++;
                 repaint();
                 mousePressed = false;
             }
@@ -149,8 +156,13 @@ public class Level2Quiz extends JPanel {
         }
     }
 
+    /**
+     *
+     * @param g
+     */
+    @Override
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
+//        super.paintComponent(g);
         Toolkit t = Toolkit.getDefaultToolkit();
         Image bg = t.getImage("background2revised.jpg");
         g.drawImage(bg, 0, 0, this);
@@ -162,66 +174,72 @@ public class Level2Quiz extends JPanel {
         g.fillRoundRect(25, 25, 750, 100, 25, 25);
         g.setColor(Color.WHITE);
 
-        if (count == -1) {
+        if (quizCount == -1) {
             g.drawString("Now, before you choose your three favourite tools, I will quiz you to make sure you understood everything I explained in Level 1." +
                     "You'll have to get 5/5 to move on, but you can retry as many times as needed.", 20, 20);
-        } else if (count < qs.size()) {
+        } else if (quizCount < qs.size()) {
 
             g.setColor(Color.DARK_GRAY);
-            if (mousePressed && optionChosen == qs.get(count).answerIndex && optionChosen == 0) {
+            if (mousePressed && optionChosen == qs.get(quizCount).answerIndex && optionChosen == 0) {
                 g.setColor(optionCorrect);
                 score++;
-            } else if (mousePressed && optionChosen != qs.get(count).answerIndex && optionChosen == 0) {
+            } else if (mousePressed && optionChosen != qs.get(quizCount).answerIndex && optionChosen == 0) {
                 g.drawImage(ps, 410, 200, this);
                 g.setColor(optionIncorrect);
             }
             g.fillRoundRect(25, 150, 300, 75, 50, 50);
 
             g.setColor(Color.DARK_GRAY);
-            if (mousePressed && optionChosen == qs.get(count).answerIndex && optionChosen == 1) {
+            if (mousePressed && optionChosen == qs.get(quizCount).answerIndex && optionChosen == 1) {
                 g.setColor(optionCorrect);
                 score++;
-            } else if (mousePressed && optionChosen != qs.get(count).answerIndex && optionChosen == 1)
+            } else if (mousePressed && optionChosen != qs.get(quizCount).answerIndex && optionChosen == 1)
                 g.setColor(optionIncorrect);
             g.fillRoundRect(25, 150 + 100, 300, 75, 50, 50);
 
             g.setColor(Color.DARK_GRAY);
-            if (mousePressed && optionChosen == qs.get(count).answerIndex && optionChosen == 2) {
+            if (mousePressed && optionChosen == qs.get(quizCount).answerIndex && optionChosen == 2) {
                 g.setColor(optionCorrect);
                 score++;
-            } else if (mousePressed && optionChosen != qs.get(count).answerIndex && optionChosen == 2)
+            } else if (mousePressed && optionChosen != qs.get(quizCount).answerIndex && optionChosen == 2)
                 g.setColor(optionIncorrect);
             g.fillRoundRect(25, 150 + 200, 300, 75, 50, 50);
 
             g.setColor(Color.WHITE);
-            g.setFont(new Font("Courier", Font.BOLD, qs.get(count).questionF));
-            g.drawString(qs.get(count).question, 75, 75);
-            g.drawString(qs.get(count).options[0],30,150);
-            g.drawString(qs.get(count).options[1],30,250);
-            g.drawString(qs.get(count).options[2],30,350);
+            g.setFont(new Font("Courier", Font.BOLD, qs.get(quizCount).questionF));
+            g.drawString(qs.get(quizCount).question, 75, 75);
+            g.drawString(qs.get(quizCount).options[0],30,150);
+            g.drawString(qs.get(quizCount).options[1],30,250);
+            g.drawString(qs.get(quizCount).options[2],30,350);
 
         }
 
-        if (count == qs.size() && score < 5) {
+        System.out.println("quizCount " + quizCount + ", score " + score + ", end is " + end);
+        if (quizCount == qs.size() && score < 5) {
             g.drawString("Great try, but let's try one more time and make sure we get them all right!", 20, 20);
-            count = -1;
+            quizCount = -1;
             score  = 0;
-        } else if (count == qs.size() && score == 5) {
-            System.out.println("GOT 100%");
-            g.drawString("Amazing job! Looks you know your stuff, little sibling.\nLet's start fighting those monsters!", 20, 20);
+        } else if (quizCount == qs.size() && score >= 5) {
+            end=true;
         }
         optionChosen = -1;
     }
 
-    public static void main(String[] args) {
-        Level2Quiz l2q = new Level2Quiz();
-        JFrame f = new JFrame("hallooo");
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.add(l2q);
-        f.pack();
-        f.setSize(800, 500);
-        f.setResizable(false);
-        f.setLocationRelativeTo(null);
-        f.setVisible(true);
+//    public static void runLvl2Quiz() {
+//        Level2Quiz l2q = new Level2Quiz();
+//        JFrame f = new JFrame();
+//        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        f.add(l2q);
+//        f.pack();
+//        f.setSize(800, 500);
+//        f.setResizable(false);
+//        f.setLocationRelativeTo(null);
+//        f.setVisible(true);
+//    }
+
+    public void startQuiz(){
+        revalidate();
+        repaint();
+        while(!end);
     }
 }
