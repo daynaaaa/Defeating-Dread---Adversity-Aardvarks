@@ -6,6 +6,8 @@
  * <p>
  * Version #1 May 30 - June 3 - [1 hr]:
  * Danya - framework
+ * Version #2 June 3-10 [15 minutes]
+ * Mya - Final touch-ups
  */
 
 import javax.swing.*;
@@ -14,9 +16,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class ConnectingScreen extends JPanel {
-    /**whether the user has made a choice or not*/
+    /**
+     * whether the user has made a choice or not
+     */
     private volatile boolean isChosen;
-    /**the user's choice*/
+    /**
+     * the user's choice
+     */
     int c;
 
     /**

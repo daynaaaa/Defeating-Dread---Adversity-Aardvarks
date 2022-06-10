@@ -21,9 +21,13 @@ public class Instructions extends JPanel {
      * if the back button is pressed
      */
     private volatile boolean pressed;
-    /**the x value of the point the user clicks on*/
+    /**
+     * the x value of the point the user clicks on
+     */
     private int x;
-    /**the y value of the point the user clicks on*/
+    /**
+     * the y value of the point the user clicks on
+     */
     private int y;
 
     /**
@@ -47,6 +51,7 @@ public class Instructions extends JPanel {
 
     /**
      * exit when the back button is pressed
+     *
      * @return the boolean value of pressed
      */
     public boolean pressed() {

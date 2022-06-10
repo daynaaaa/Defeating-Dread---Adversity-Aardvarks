@@ -10,6 +10,8 @@
  * added text
  * Version #2 May 25 - [1 hr]:
  * Danya - added a method to update the graphics
+ * Version #3 June 3-10
+ * Mya - added in backgrounds
  */
 
 import java.util.*;
@@ -19,13 +21,21 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Menu extends JPanel {
-    /**the user's choice*/
+    /**
+     * the user's choice
+     */
     private int c;
-    /**whether the user has made a choice or not*/
+    /**
+     * whether the user has made a choice or not
+     */
     private volatile boolean isChosen;
-    /**the x value of the point the user clicks on*/
+    /**
+     * the x value of the point the user clicks on
+     */
     private int x;
-    /**the y value of the point the user clicks on*/
+    /**
+     * the y value of the point the user clicks on
+     */
     private int y;
 
     /**

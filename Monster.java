@@ -7,8 +7,9 @@
  * Version #1 May 16 - May 20 - [0.5 hrs]:
  * Mya - created preliminary Monster class with some methods
  * Version #2 June 6 - [1 hrs]:
- * Danya - change some parameters for functionality purposes 
+ * Danya - change some parameters for functionality purposes
  */
+
 import java.util.*;
 import java.io.*;
 import javax.swing.*;
@@ -16,12 +17,14 @@ import javax.imageio.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
+
 public class Monster {
     /**
      * starting health
      */
     private int health;
     private Image monster;
+
     /**
      * constructor with parameters
      *
@@ -33,12 +36,14 @@ public class Monster {
         monster = Main.imageFromFile(mName);
 
     }
+
     /**get Monster image
      *@return image of monster
      */
-    public Image getImage(){
+    public Image getImage() {
         return monster;
     }
+
     /**
      * decrement health when fighting
      *
@@ -63,10 +68,11 @@ public class Monster {
     public void fight(Tool tool) {
         this.decrease(tool.getDamage());
     }
+
     /**
      * @return true if the monster is defeated
      */
-    public boolean isDefeated(){
+    public boolean isDefeated() {
         return health <= 0;
     }
 

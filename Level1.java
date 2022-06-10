@@ -41,7 +41,7 @@ public class Level1 extends JPanel {
         getActionMap().put("next", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(count<lesson.size()-1)
+                if (count < lesson.size() - 1)
                     count++;
                 repaint();
                 System.out.println(count);
@@ -54,13 +54,12 @@ public class Level1 extends JPanel {
         getActionMap().put("left", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(count>0)
+                if (count > 0)
                     count--;
                 repaint();
                 System.out.println("ITS WORKS ASLKDFJ");
             }
         });
-
 
 
 //        addMouseListener(new MouseAdapter() {
@@ -79,6 +78,7 @@ public class Level1 extends JPanel {
 //            }
 //        });
     }
+
     /**
      * Draw the graphics
      *

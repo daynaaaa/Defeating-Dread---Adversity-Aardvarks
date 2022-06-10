@@ -53,7 +53,7 @@ public class WinningScreen extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(Main.imageFromFile("backgroundmenu.jpg"), 0, 0, null);
+        g.drawImage(Main.imageFromFile("background1revised.jpg"), 0, 0, null);
         g.setColor(Color.DARK_GRAY);
         g.fillRect(250, 150, 300, 80);
         g.setColor(Color.WHITE);
