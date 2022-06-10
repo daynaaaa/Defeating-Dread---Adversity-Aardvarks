@@ -45,6 +45,8 @@ public class Level1 extends JPanel {
                     count++;
                 repaint();
                 System.out.println(count);
+                if (count < lesson.size() - 1) count++;
+                else end = true;
             }
         });
 
