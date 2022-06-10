@@ -68,7 +68,7 @@ public class Level2 extends JPanel {
      */
     private Tool openTool = null;
 
-    private Point buttonDimensions = new Point(75, 75);
+    private Point buttonDimensions = new Point(50, 50);
     private Point noButton = new Point(410 + buttonDimensions.x + 5, 100);
     private Point yesButton = new Point(410, 100);
 
