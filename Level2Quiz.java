@@ -1,3 +1,13 @@
+/**
+ * Authors: Danya C, Mya E, Sulagna N
+ * Teacher: Ms. Krasteva
+ * Date: May 16, 2022
+ * Desc: Quiz for level 2
+ * <p>
+ * Version #2 June 3 -10 [2 hrs]:
+ * Mya - Integrate quiz with the game through the main
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -13,12 +23,19 @@ public class Level2Quiz extends JPanel {
     Color optionCorrect = new Color(27, 160, 82);
     Color optionIncorrect = new Color(201, 24, 19);
 
+    /**
+     * it is important for this to be declared volatile so the while loop will to notice when the value changes
+     * set to true when the game ends
+     */
+    private volatile boolean end = false;
+
+    /**
+     * checks if the level is over
+     * @return if the level is over as a boolean
+     */
     public boolean isEnd() {
         return end;
     }
-
-    // it is important for this to be declared volatile so the while loop will to notice when the value changes
-    private volatile boolean end = false;
 
     public Level2Quiz() {
         qs = new ArrayList<>();
@@ -54,7 +71,7 @@ public class Level2Quiz extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                if(quizCount <qs.size())
+                if (quizCount < qs.size())
                     quizCount++;
                 repaint();
                 mousePressed = false;
@@ -208,9 +225,9 @@ public class Level2Quiz extends JPanel {
             g.setColor(Color.WHITE);
             g.setFont(new Font("Courier", Font.BOLD, qs.get(quizCount).questionF));
             g.drawString(qs.get(quizCount).question, 75, 75);
-            g.drawString(qs.get(quizCount).options[0],30,150);
-            g.drawString(qs.get(quizCount).options[1],30,250);
-            g.drawString(qs.get(quizCount).options[2],30,350);
+            g.drawString(qs.get(quizCount).options[0], 30, 150);
+            g.drawString(qs.get(quizCount).options[1], 30, 250);
+            g.drawString(qs.get(quizCount).options[2], 30, 350);
 
         }
 
@@ -218,28 +235,19 @@ public class Level2Quiz extends JPanel {
         if (quizCount == qs.size() && score < 5) {
             g.drawString("Great try, but let's try one more time and make sure we get them all right!", 20, 20);
             quizCount = -1;
-            score  = 0;
+            score = 0;
         } else if (quizCount == qs.size() && score >= 5) {
-            end=true;
+            end = true;
         }
         optionChosen = -1;
     }
 
-//    public static void runLvl2Quiz() {
-//        Level2Quiz l2q = new Level2Quiz();
-//        JFrame f = new JFrame();
-//        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        f.add(l2q);
-//        f.pack();
-//        f.setSize(800, 500);
-//        f.setResizable(false);
-//        f.setLocationRelativeTo(null);
-//        f.setVisible(true);
-//    }
-
-    public void startQuiz(){
+    /**
+     * run the level 2 quiz
+     */
+    public void startQuiz() {
         revalidate();
         repaint();
-        while(!end);
+        while (!end) ;
     }
 }
