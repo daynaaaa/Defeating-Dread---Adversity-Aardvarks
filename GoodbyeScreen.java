@@ -68,6 +68,12 @@ public class GoodbyeScreen extends JPanel implements ActionListener {
         g.setColor(Color.GREEN);
         g.fillRect(0, 400, 800, 100);
         g.drawImage(Main.imageFromFile("adverbNobackground.png").getScaledInstance(100, -1, Image.SCALE_DEFAULT), x, 360, this);
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("Courier", Font.BOLD, 20));
+        g.drawString("Goodbye! Thanks for playing Defeating Dread!", 30, 100);
+        g.drawString("Programmed and drawn by Danya, Mya, and Sulagna", 30, 130);
+        g.drawString("(Adversity Aardvarks)", 30, 160);
+
         tm.start();
         g.setColor(Color.ORANGE);
         g.fillOval(700, -50, 200, 200);
