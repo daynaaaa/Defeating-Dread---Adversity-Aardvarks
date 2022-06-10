@@ -108,14 +108,6 @@ public class Level3 extends JPanel{
                 if(count >= 4){
                    if (x > 170 && y > 370 && x < 250 && y < 450) {
                        toolChosen = true;
-                       /**
-                       if(currentTool == null){
-                           toolChosen = true;   
-                       }
-                       else if(currentTool.getName() != chosenTools.get(0).getName()){
-                           toolChosen = true;   
-                       }
-                       else toolChosen = false;**/
                        currentTool = chosenTools.get(0);
                        tool = 1;
                        taskComplete = false;
@@ -123,14 +115,6 @@ public class Level3 extends JPanel{
                    }
                    else if (x > 270 && y > 370 && x < 350 && y < 450) {
                        toolChosen = true;
-                       /*if(currentTool == null){
-                           toolChosen = true;   
-                       }
-                       else if(currentTool.getName() != chosenTools.get(1).getName()){
-                           toolChosen = true;   
-                       }
-
-                       else toolChosen = false;*/
                        currentTool = chosenTools.get(1);
                        tool = 2;
                        taskComplete = false;
@@ -138,13 +122,6 @@ public class Level3 extends JPanel{
                    }
                    else if (x > 370 && y > 370 && x < 450 && y < 450) {
                        toolChosen = true;
-                       /*if(currentTool == null){
-                           toolChosen = true;   
-                       }
-                       else if(currentTool.getName() != chosenTools.get(2).getName()){
-                           toolChosen = true;   
-                       }
-                       else toolChosen = false;*/
                        currentTool = chosenTools.get(2);
                        tool = 3;
                        taskComplete = false;
@@ -261,18 +238,10 @@ public class Level3 extends JPanel{
                   if(taskComplete){
                   m.fight(currentTool);
                   repaint();
-                  /*if(m.isDefeated()&&monNum!=numMon){
-                        monNum++;
-                        health = monNum * 10;
-                        m = new Monster(health, monsters[monNum-1]);
-                        
-                  }*/
-                  //if(!m.isDefeated()) health = m.getHealth();
                   toolChosen = false;
                   
                   }
                }
-               //else if (monNum == numMon&& m.isDefeated()) count++;
                break;
             case 5:
                isMonster = false;
