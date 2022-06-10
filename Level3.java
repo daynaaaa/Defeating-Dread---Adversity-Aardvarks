@@ -10,7 +10,7 @@
  *    Danya - added squares to represent the characters and the tools
  *    Added the function to view the tools details
  *    Also implemented fighting the monster
- * Version #3 June 6 - June 10 - [4 hrs]:
+ * Version #3 June 6 - June 10 - [5 hrs]:
  *    Danya - fixed bugs in fighting the monster, such as pressing space to continue
  */
 
@@ -88,6 +88,17 @@ public class Level3 extends JPanel{
                 else if(isTask&&!m.isDefeated()){
                   taskComplete = true;
                 }
+                else if(!m.isDefeated()){
+                        health = m.getHealth();
+                }
+                else if(monNum!=numMon){
+                        monNum++;
+                        health = monNum * 10;
+                        m = new Monster(health, monsters[monNum-1]);
+                        
+                  }
+                  else count++;
+
                 repaint();
             }
          });
@@ -98,40 +109,44 @@ public class Level3 extends JPanel{
                 //choosing tools
                 if(count >= 4){
                    if (x > 170 && y > 370 && x < 250 && y < 450) {
+                       toolChosen = true;
+                       /**
                        if(currentTool == null){
                            toolChosen = true;   
                        }
                        else if(currentTool.getName() != chosenTools.get(0).getName()){
                            toolChosen = true;   
                        }
-                       else toolChosen = false;
+                       else toolChosen = false;**/
                        currentTool = chosenTools.get(0);
                        tool = 1;
                        taskComplete = false;
                        repaint();
                    }
                    else if (x > 270 && y > 370 && x < 350 && y < 450) {
-                       if(currentTool == null){
+                       toolChosen = true;
+                       /*if(currentTool == null){
                            toolChosen = true;   
                        }
                        else if(currentTool.getName() != chosenTools.get(1).getName()){
                            toolChosen = true;   
                        }
 
-                       else toolChosen = false;
+                       else toolChosen = false;*/
                        currentTool = chosenTools.get(1);
                        tool = 2;
                        taskComplete = false;
                        repaint();
                    }
                    else if (x > 370 && y > 370 && x < 450 && y < 450) {
-                       if(currentTool == null){
+                       toolChosen = true;
+                       /*if(currentTool == null){
                            toolChosen = true;   
                        }
                        else if(currentTool.getName() != chosenTools.get(2).getName()){
                            toolChosen = true;   
                        }
-                       else toolChosen = false;
+                       else toolChosen = false;*/
                        currentTool = chosenTools.get(2);
                        tool = 3;
                        taskComplete = false;
@@ -213,11 +228,12 @@ public class Level3 extends JPanel{
                break;
             case 4:
                isMonster = true;
-               g.drawImage(m.getImage(), 500, 100, null);
+              
                if(m.isDefeated()){
                   g.setColor(Color.WHITE);
                   g.drawString("Congrats! You have", 500, 20);
                   g.drawString("defeated Monster #"+monNum, 500, 40);
+                  
                   if(monNum == numMon){
                      tool = 0;
                      g.setColor(Color.WHITE);
@@ -225,16 +241,17 @@ public class Level3 extends JPanel{
                      g.drawString("Press space or click anywhere to continue...", 20, 100);
 
                   }
-                 
+                  else g.drawString("Press space to continue...", 20, 100);
                }
                else{
+                  g.drawImage(m.getImage(), 500, 100, null);
                   g.setColor(Color.RED);   
                   g.fillRect(500, 50, 260, 20);
                   g.setColor(Color.GREEN);
                   g.fillRect(500, 50, (int)(m.getHealth()/(monNum*10.0)*260), 20);
                   g.setColor(Color.WHITE);  
                   g.drawString("Monster number: " + monNum, 500, 10);
-                  g.drawString("Health: " + health, 500, 30);
+                  g.drawString("Health: " + m.getHealth(), 500, 30);
                   isDialogue = false;
                }
                
@@ -243,25 +260,25 @@ public class Level3 extends JPanel{
                   if(taskComplete){
                   m.fight(currentTool);
                   repaint();
-                  if(m.isDefeated()&&monNum!=numMon){
+                  /*if(m.isDefeated()&&monNum!=numMon){
                         monNum++;
                         health = monNum * 10;
                         m = new Monster(health, monsters[monNum-1]);
                         
-                  }
-                  else health = m.getHealth();
+                  }*/
+                  //if(!m.isDefeated()) health = m.getHealth();
                   toolChosen = false;
                   
                   }
                }
-               else if (monNum == numMon&& m.isDefeated()) count++;
+               //else if (monNum == numMon&& m.isDefeated()) count++;
                break;
             case 5:
                isMonster = false;
                isDialogue = true;
                g.drawImage(Main.imageFromFile("background1revised.jpg"), 0, 0, null);
-               g.drawString("You did it! You fought off the anxiety and learned all sorts of", 20, 70);
-               g.drawString("new stress management tools. Now you can return safely to camp!", 20, 100);
+               g.drawString("You did it! You fought off the anxiety and learned all sorts of", 20, 100);
+               g.drawString("new stress management tools. Now you can return safely to camp!", 20, 130);
                player = Main.imageFromFile("PlayerHappy.png");
                g.drawImage(player, 20, 200, null);
                break;
