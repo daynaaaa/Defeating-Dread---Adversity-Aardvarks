@@ -1,7 +1,7 @@
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
- * Date: May 16, 2022
+ * Date: June 9, 2022
  * Desc: "WinningScreen" to be used when the player finishes all three levels
  * <p>
  * Version #1 June 9 - [1 hr]:
@@ -60,7 +60,7 @@ public class WinningScreen extends JPanel {
         g.setFont(new Font("Courier", Font.BOLD, 33));
         g.drawString("DEFEATING DREAD", 250, 30);
         g.setFont(new Font("Courier", Font.BOLD, 20));
-        g.drawString("You have beat all 3 levels of the game!", 250, 70);
+        g.drawString("You have beat all 3 levels of the game!", 150, 70);
         g.drawString("CONGRATULATIONS!", 290, 100);
         g.drawString("Continue", 330, 190);
     }
