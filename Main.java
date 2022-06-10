@@ -36,9 +36,7 @@ public class Main extends JPanel {
      * initialize the frame
      */
     private static void initializeFrame() {
-        frame = new JFrame("Defeating Dread");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.setTitle("Defeating Dread");
         frame.pack();
         frame.setSize(800, 500);
         frame.setResizable(false);
@@ -68,7 +66,7 @@ public class Main extends JPanel {
     public static void main(String[] args) {
 
         Main m = new Main();
-        frame = new JFrame();
+        frame = new JFrame("Defeating Dread");
         SwingUtilities.invokeLater(Main::initializeFrame);
         frame.setVisible(true);
         SplashScreen s = new SplashScreen();
@@ -107,11 +105,11 @@ public class Main extends JPanel {
                        ArrayList<Tool> cT = l2.returnChosenTools();
                        current = l2;
                        //quiz
-                        frame.remove(current);
-                        Level2Quiz l2q = new Level2Quiz();
-                        frame.add(l2q);
-                        l2q.startQuiz();
-                        current = l2q;
+                       frame.remove(current);
+                       Level2Quiz l2q = new Level2Quiz();
+                       frame.add(l2q);
+                       l2q.startQuiz();
+                       current = l2q;
                        //level 3
                        frame.remove(current);
                        cs = new ConnectingScreen();
