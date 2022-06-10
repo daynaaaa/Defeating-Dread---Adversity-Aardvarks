@@ -140,6 +140,12 @@ public class Main extends JPanel {
                     current = i;
                     break;
                 case 3:
+                    frame.remove(current);
+                    GoodbyeScreen gs = new GoodbyeScreen();
+                    frame.add(gs);
+                    gs.start();
+                    current = gs;
+
                     System.exit(0);
                     break;
                 default:

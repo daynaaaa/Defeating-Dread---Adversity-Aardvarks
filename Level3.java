@@ -31,8 +31,6 @@ public class Level3 extends JPanel{
      * chosen tools - made from collectTools method
      */
     ArrayList <Tool> chosenTools;
-    /** Text message*/
-    ArrayList <String> message;
     /** If the level has ended */
     private volatile boolean end;
     /** Variable to control the storyline*/
@@ -215,6 +213,9 @@ public class Level3 extends JPanel{
         g.setColor(Color.WHITE);
 
         switch(count){
+            case 0:
+               g.drawString("Level 3: Escape Room", 20, 70);
+               break;
             case 1:
                g.drawString("It's getting pretty dark out here...", 20, 70);
                break;
