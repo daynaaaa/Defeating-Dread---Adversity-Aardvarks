@@ -3,20 +3,17 @@
  * Teacher: Ms. Krasteva
  * Date: May 16, 2022
  * Desc: "Main" class that runs the game
- * <p>
+ *
  * Version #1 May 16 - May 20 - [2.5 hrs]:
- * Danya - implemented if statements to decide what screen to show next
- * Also made the quit button work
+ *    Danya - implemented if statements to decide what screen to show next
+ *    Also made the quit button work
  * Version #2 May 24 - May 27 - [2 hrs]:
- * Danya - added splash screen and l3
- * fix problem with while loop
+ *    Danya - added splash screen and l3
+ *    fix problem with while loop
  * Version #3 June 2 - [1 hrs]:
- * Danya - added level 2 and 3
- * <p>
- * Version #4 June 3-10 [1 hrs]
- * Mya - Integrate level 2 quiz in with level 2 by adding it into the main
+ *    Danya - added level 2 and 3
+ *    
  */
-
 import java.util.*;
 import java.io.*;
 import javax.swing.*;
@@ -35,7 +32,6 @@ public class Main extends JPanel {
     public static JFrame frame;
     /** This Graphics2D variable holds the graphics that are being drawn. */
     public static Graphics2D graphics;
-
     /**
      * initialize the frame
      */
@@ -47,8 +43,7 @@ public class Main extends JPanel {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
-
-    /**
+     /**
      * Get the image from the file
      *
      * @param path image path
@@ -65,7 +60,6 @@ public class Main extends JPanel {
         }
         return null;
     }
-
     /**
      * Run the game
      */
@@ -103,39 +97,39 @@ public class Main extends JPanel {
                     cs.updateC();
                     current = cs;
                     if (cs.getC() == 1) {
-                        //level 2
-                        frame.remove(current);
-                        Level2 l2 = new Level2();
-                        frame.add(l2);
-                        l2.start2();
-                        ArrayList<Tool> cT = l2.returnChosenTools();
-                        current = l2;
-                        //quiz
-                        frame.remove(current);
-                        Level2Quiz l2q = new Level2Quiz();
-                        frame.add(l2q);
-                        l2q.startQuiz();
-                        current = l2q;
-                        //level 3
-                        frame.remove(current);
-                        cs = new ConnectingScreen();
-                        frame.add(cs);
-                        cs.updateC();
-                        current = cs;
-                        if (cs.getC() == 1) {
-                            frame.remove(current);
-                            Level3 l3 = new Level3(cT);
-                            frame.add(l3);
-                            l3.start3();
-                            current = l3;
-                            //winning screen
-                            frame.remove(current);
-                            WinningScreen ws = new WinningScreen();
-                            frame.add(ws);
-                            ws.updateC();
-                            current = ws;
+                       //level 2
+                       frame.remove(current);
+                       Level2 l2 = new Level2();
+                       frame.add(l2);
+                       l2.start2();
+                       ArrayList<Tool> cT = l2.returnChosenTools();
+                       current = l2;
+                       //quiz
+                       frame.remove(current);
+                       Level2Quiz l2q = new Level2Quiz();
+                       frame.add(l2q);
+                       l2q.startQuiz();
+                       current = l2q;
+                       //level 3
+                       frame.remove(current);
+                       cs = new ConnectingScreen();
+                       frame.add(cs);
+                       cs.updateC();
+                       current = cs;
+                       if (cs.getC() == 1) {
+                           frame.remove(current);
+                           Level3 l3 = new Level3(cT);
+                           frame.add(l3);
+                           l3.start3();
+                           current = l3;
+                           //winning screen
+                           frame.remove(current);
+                           WinningScreen ws = new WinningScreen();
+                           frame.add(ws);
+                           ws.updateC();
+                           current = ws;
 
-                        }
+                       }
                     }
                     break;
                 case 2:
@@ -146,6 +140,12 @@ public class Main extends JPanel {
                     current = i;
                     break;
                 case 3:
+                    frame.remove(current);
+                    GoodbyeScreen gs = new GoodbyeScreen();
+                    frame.add(gs);
+                    gs.start();
+                    current = gs;
+
                     System.exit(0);
                     break;
                 default:
