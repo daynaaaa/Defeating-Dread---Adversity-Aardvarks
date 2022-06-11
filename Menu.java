@@ -11,7 +11,7 @@
  * Version #2 May 25 - [1 hr]:
  * Danya - added a method to update the graphics
  * Version #3 June 3-10
- * Mya - added in backgrounds
+ * Mya - added in backgrounds and logo
  */
 
 import java.util.*;
@@ -95,6 +95,7 @@ public class Menu extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(Main.imageFromFile("backgroundmenu.jpg"), 0, 0, null);
+        g.drawImage(Main.imageFromFile("adversityNEW.png").getScaledInstance(100, -1, Image.SCALE_DEFAULT), 25, 380, this);
         g.fillRect(250, 150, 300, 80);
         g.fillRect(250, 240, 300, 80);
         g.fillRect(250, 330, 300, 80);

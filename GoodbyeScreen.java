@@ -63,9 +63,9 @@ public class GoodbyeScreen extends JPanel implements ActionListener {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Color backgroundColour = new Color(113, 189, 217);
+        Color backgroundColour = new Color(159, 204, 222);
         setBackground(backgroundColour);
-        g.setColor(Color.GREEN);
+        g.setColor(new Color(133, 189, 92));
         g.fillRect(0, 400, 800, 100);
         g.drawImage(Main.imageFromFile("adverbNobackground.png").getScaledInstance(100, -1, Image.SCALE_DEFAULT), x, 360, this);
         g.setColor(Color.BLACK);
