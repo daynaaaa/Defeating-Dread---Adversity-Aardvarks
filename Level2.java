@@ -218,9 +218,10 @@ public class Level2 extends JPanel {
                 drawAvailableTools(g);
                 break;
             case 4:
+                isDialogue=true;
                 g.drawString("Good choices! Now, before you continue on to fight your anxiety,", 100, 100);
-                g.drawString("I will quiz you to make sure you understood everything I explained before", 100, 130);
-                g.drawString("so you know you'll be ready for what comes next", 100, 160);
+                g.drawString("I will quiz you to make sure you understood everything ", 100, 130);
+                g.drawString("I explained before so you know you'll be ready for what comes next", 100, 160);
                 break;
             case 5:
                 end = true;
@@ -229,6 +230,7 @@ public class Level2 extends JPanel {
             default:
 
         }
+        System.out.println("count " + count + ", end " + end);
     }
 
     /**
