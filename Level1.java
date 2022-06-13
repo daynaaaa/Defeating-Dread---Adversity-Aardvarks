@@ -125,160 +125,160 @@ public class Level1 extends JPanel {
         lessonFont.add(14);
 
         lesson.add("Sometimes anxiety can feel like a battle, but with the right tools, you'll be able to win.");
-        lessonX.add(25);
+        lessonX.add(83);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(12);
 
         lesson.add("First, let's take some time for you to learn all about anxiety.");
-        lessonX.add(30);
+        lessonX.add(144);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(14);
 
         lesson.add("We'll start with what anxiety even is.");
-        lessonX.add(30);
+        lessonX.add(225);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(15);
 
         lesson.add("Anxiety is \"an emotion characterized by feelings of tension," +
                 " worried thoughts and physical changes\".\n");
-        lessonX.add(30);
+        lessonX.add(50);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(11);
 
         lesson.add("Anxiety disorders in general make people frightened, distressed, or uneasy.\n");
-        lessonX.add(30);
+        lessonX.add(100);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(13);
 
         lesson.add("They feel this way even in situations where people without anxiety disorders would not feel that way.");
-        lessonX.add(30);
+        lessonX.add(48);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(11);
 
         lesson.add("There are many causes of anxiety.");
-        lessonX.add(30);
+        lessonX.add(250);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(15);
 
         lesson.add("Genetic: Children can inherit the tendency to constantly worry from parents.\n");
-        lessonX.add(30);
+        lessonX.add(95);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(14);
 
-        lesson.add("Learned: Kids mimic behaviour around them.\nIf caregivers or many peers around them are anxious, they likely will be too.\n");
-        lessonX.add(30);
+        lesson.add("Learned: If your caregivers or peers are anxious, you likely will be too.\n");
+        lessonX.add(107);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(14);
 
         lesson.add("Environmental: This is anxiety after a stressful event occurs.");
-        lessonX.add(30);
+        lessonX.add(147);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(14);
 
         lesson.add("Some examples are death, sickness, frequent moving, being bullied, and being abused.");
-        lessonX.add(30);
+        lessonX.add(67);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(13);
 
-        lesson.add("Co-occurring conditions can worsen it (i.e. depression, ADHD, autism spectrum disorders, eating disorders, etc.).");
-        lessonX.add(30);
+        lesson.add("Co-occurring conditions can worsen it (e.g. depression, ADHD, autism, eating disorders).");
+        lessonX.add(49);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(13);
 
         lesson.add("Biological: Neurotransmitters communicate with our body on how we're supposed to feel.");
-        lessonX.add(30);
+        lessonX.add(57);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(13);
 
         lesson.add("If the wrong neurotransmitters are sent at the wrong time, people are prone to being more anxious.");
-        lessonX.add(30);
+        lessonX.add(58);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(12);
 
         lesson.add("Here are two very common, specific reasons.");
-        lessonX.add(30);
+        lessonX.add(210);
+        lessonY.add(80);
+        lessonFont.add(15);
+
+        lesson.add("Workload: The increase in workload is the most common source of anxiety in upper elementary and middle schoolers.");
+        lessonX.add(60);
         lessonY.add(80);
         lessonFont.add(10);
 
-        lesson.add("Workload: The increase in workload is arguably the most common source of anxiety in upper elementary and middle school kids.");
-        lessonX.add(30);
+        lesson.add("Homework, exams, and large projects come in heavier loads and mean more than they did before.");
+        lessonX.add(75);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(11);
 
-        lesson.add("Homework, exams, and large projects come in heavier loads and mean more than they did in lower elementary school.");
-        lessonX.add(30);
-        lessonY.add(80);
-        lessonFont.add(10);
-
-        lesson.add("Self-discovery: Upper elementary and middle school is time to find who you are and change it as you see fit.");
-        lessonX.add(30);
+        lesson.add("Self-discovery: Upper elementary and middle school is the time to find who you are and change it as you see fit.");
+        lessonX.add(60);
         lessonY.add(80);
         lessonFont.add(10);
 
         lesson.add("While you may feel more independence, feelings of uncertainty and growing pains may be causing you anxiety.");
-        lessonX.add(30);
+        lessonX.add(78);
         lessonY.add(80);
         lessonFont.add(10);
 
-        lesson.add("Losing some friends, meeting people, exploring new things, and being unsure about your choices all make this a challenging time.");
-        lessonX.add(30);
-        lessonY.add(80);
-        lessonFont.add(9);
-
-        lesson.add("Anxiety presents itself through physical and emotional symptoms. Continue for some examples of both.");
-        lessonX.add(30);
+        lesson.add("Losing some friends, meeting people, exploring, and being unsure about your choices make this a challenging time.");
+        lessonX.add(63);
         lessonY.add(80);
         lessonFont.add(10);
 
+        lesson.add("Anxiety presents itself through physical and emotional symptoms. Here are some examples of both.");
+        lessonX.add(65);
+        lessonY.add(80);
+        lessonFont.add(12);
+//-------------------------
         lesson.add("Physical: consistent stomach aches, headaches, rapid heartbeat");
-        lessonX.add(30);
+        lessonX.add(148);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(14);
 
         lesson.add("shortness of breath, nausea, irritability, sleeplessness");
-        lessonX.add(30);
+        lessonX.add(170);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(14);
 
         lesson.add("nightmares, low energy, inability to sit still, and tantrums.");
-        lessonX.add(30);
+        lessonX.add(155);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(14);
 
         lesson.add("Emotional: constantly discussing fears and worries");
-        lessonX.add(30);
+        lessonX.add(190);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(14);
 
         lesson.add("spending excessive time alone, avoiding socialization");
-        lessonX.add(30);
+        lessonX.add(185);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(14);
 
         lesson.add("worsening educational performance, and truancy.");
-        lessonX.add(30);
+        lessonX.add(212);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(14);
 
         lesson.add("Now that you understand a bit more about your anxiety, it's time to fight the monsters lurking in the forest.");
-        lessonX.add(30);
+        lessonX.add(73);
         lessonY.add(80);
         lessonFont.add(10);
 
         lesson.add("But don't worry; they're nothing but your own anxiety.");
-        lessonX.add(30);
+        lessonX.add(156);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(15);
 
         lesson.add("They might look scary, but you'll be a master of defeating your dread in no time at all!");
-        lessonX.add(30);
+        lessonX.add(48);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(13);
 
         lesson.add("You have completed Level 1! Press continue or quit on the next screen.");
-        lessonX.add(30);
+        lessonX.add(117);
         lessonY.add(80);
-        lessonFont.add(10);
+        lessonFont.add(13);
     }
 
     /**
