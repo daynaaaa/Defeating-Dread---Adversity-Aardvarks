@@ -73,13 +73,14 @@ public class Level2 extends JPanel {
     /**
      * Dimensions for the yes/no buttons during the tool selection screen
      */
-    private Point buttonDimensions = new Point(45, 30);
+    private Point buttonDimensions = new Point(70, 30);
     /**
      * Locations for the yes/no buttons
      * The no button will be set to the right of the yes button
      */
-    private Point noButton = new Point(310 + buttonDimensions.x + 5, 100);
-    private Point yesButton = new Point(310, 100);
+    private Point yesButton = new Point(100, 100);
+    private Point noButton = new Point(yesButton.x + buttonDimensions.x + 5, 100);
+    
 
     /**
      * constructor
@@ -197,7 +198,7 @@ public class Level2 extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(Main.imageFromFile("background2revised.jpg"), 0, 0, null);
-        g.setFont(new Font("Courier", Font.BOLD, 20));
+        g.setFont(new Font("Courier", Font.BOLD, 15));
         g.setColor(Color.WHITE);
         g.drawImage(Main.imageFromFile("PlayerSad.png").getScaledInstance(100, -1, Image.SCALE_DEFAULT), 350, 260, this);
         switch (count) {
@@ -309,7 +310,7 @@ public class Level2 extends JPanel {
      */
     private void displayToolInfo(Graphics g) {
         g.setColor(new Color(100, 100, 100, 195));
-        g.fillRect(yesButton.x-20, 0, 600, 500);
+        g.fillRect(yesButton.x-20, 0, 800, 500);
         g.setFont(new Font("Courier", Font.BOLD, 25));
         g.setColor(Color.WHITE);
         int drawStringY = 30;
@@ -330,8 +331,8 @@ public class Level2 extends JPanel {
         g.fillRect(noButton.x, noButton.y, buttonDimensions.x, buttonDimensions.y);
         g.setFont(new Font("Courier", Font.BOLD, 18));
         g.setColor(Color.WHITE);
-        g.drawString("Yes", yesButton.x + 5, yesButton.y + 20);
-        g.drawString("No", noButton.x + 5, noButton.y + 20);
+        g.drawString("Equip", yesButton.x + 5, yesButton.y + 20);
+        g.drawString("Cancel", noButton.x + 5, noButton.y + 20);
     }
 
 
