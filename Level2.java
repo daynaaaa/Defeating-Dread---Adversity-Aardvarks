@@ -219,10 +219,7 @@ public class Level2 extends JPanel {
                 break;
             case 4:
                 isDialogue=true;
-                g.drawString("Good choices! Now, before you continue on to fight", 100, 100);
-                g.drawString("your anxiety, I will quiz you to make sure you understood ", 100, 130);
-                g.drawString(" everything I explained before so you know you'll ", 100, 160);
-                g.drawString("be ready for what comes next", 100, 190);
+                g.drawString("Good choices! But, I can't let you move on just yet...", 100, 100);
                 break;
             case 5:
                 end = true;
