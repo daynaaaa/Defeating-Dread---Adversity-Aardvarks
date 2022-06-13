@@ -27,7 +27,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -233,7 +232,8 @@ public class Level2 extends JPanel {
         Tool selectedTool = clickedInAvailableTool(x, y);
         if (selectedTool != null) {
             this.openTool = selectedTool;
-        } else {
+        }
+        else {
             this.openTool = null;
         }
     }
@@ -298,7 +298,7 @@ public class Level2 extends JPanel {
     /**
      * writes out the tool information
      *
-     * @param g
+     * @param g graphics
      */
     private void displayToolInfo(Graphics g) {
         g.setColor(new Color(100, 100, 100, 195));
