@@ -80,7 +80,7 @@ public class Level3 extends JPanel{
          getActionMap().put("next", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(isDialogue){
+                if(isDialogue&&count != 4){
                   count++;
                 }
                 else if(isTask&&!m.isDefeated()){
@@ -206,7 +206,7 @@ public class Level3 extends JPanel{
                break;
             case 4:
                isMonster = true;
-              
+               isDialogue = false;
                if(m.isDefeated()){
                   g.setColor(Color.WHITE);
                   g.drawString("Congrats! You have", 500, 20);
@@ -230,7 +230,6 @@ public class Level3 extends JPanel{
                   g.setColor(Color.WHITE);  
                   g.drawString("Monster number: " + monNum, 500, 10);
                   g.drawString("Health: " + m.getHealth(), 500, 30);
-                  isDialogue = false;
                }
                
                if(toolChosen&& monNum <= numMon){
