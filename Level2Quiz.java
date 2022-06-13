@@ -71,7 +71,6 @@ public class Level2Quiz extends JPanel {
                 if (count < 0 || (count == qs.size() && !allAnswersCorrect()))
                     count++;
                 repaint();
-                System.out.println(count);
             }
         });
 
@@ -144,7 +143,7 @@ public class Level2Quiz extends JPanel {
         qs.add(new Question(q, qx, qy, qf, o, ox, oy, of, a));
 
 
-        q = "Middle schoolers may have the hardest time with anxiety becauseâ€¦";
+        q = "Middle schoolers may have the hardest time with anxiety because…";
         qx = 65;
         qy = 80;
         qf = 16;
@@ -325,7 +324,6 @@ public class Level2Quiz extends JPanel {
         g.setFont(new Font("Courier", Font.BOLD, 15));
         if (count == qs.size() && !allAnswersCorrect()) {
             g.drawString("Great try, but let's try one more time and make sure we get them all right!", 58, 80);
-            g.drawString("Press space to try again", 58, 100);
             count = -1;
             correctOrNot = new boolean[5];
             g.drawImage(ps, 410, 200, this);
