@@ -33,10 +33,6 @@ import java.util.ArrayList;
 
 public class Level2 extends JPanel {
     /**
-     * monster
-     */
-    Monster monster;
-    /**
      * available tools - made from constructor
      */
     ArrayList<Tool> availableTools = new ArrayList<>();
@@ -44,10 +40,6 @@ public class Level2 extends JPanel {
      * chosen tools - made from collectTools method
      */
     ArrayList<Tool> chosenTools = new ArrayList<>();
-    /**
-     * Text message
-     */
-    ArrayList<String> message = new ArrayList<>();
     /**
      * If the level has ended
      */
@@ -73,7 +65,7 @@ public class Level2 extends JPanel {
     /**
      * Dimensions for the yes/no buttons during the tool selection screen
      */
-    private Point buttonDimensions = new Point(70, 30);
+    private final Point buttonDimensions = new Point(70, 30);
     /**
      * Locations for the yes/no buttons
      * The no button will be set to the right of the yes button
@@ -333,29 +325,6 @@ public class Level2 extends JPanel {
         g.setColor(Color.WHITE);
         g.drawString("Equip", yesButton.x + 5, yesButton.y + 20);
         g.drawString("Cancel", noButton.x + 5, noButton.y + 20);
-    }
-
-
-    /**
-     * checks if tools are still being collected
-     * while tools are being collected, the chosen tool is equipped
-     *
-     * @param g graphics to draw
-     */
-    public void collectTools(Graphics g) {
-        g.setFont(new Font("Courier", Font.BOLD, 20));
-        g.setColor(Color.WHITE);
-        g.drawString("Collecting tools:", 100, 100);
-
-        while (chosenTools.size() < 3) {
-            repaint();
-            x = getMousePosition().x;
-            y = getMousePosition().y;
-
-            if (x >= 100 && x <= 150) {
-                chosenTools.add(availableTools.remove(0));
-            }
-        }
     }
 
     /**
