@@ -70,7 +70,10 @@ public class Level2Quiz extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 if (count < 0 || (count == qs.size() && !allAnswersCorrect()))
                     count++;
+                else if(count == qs.size() && allAnswersCorrect())
+                    end = true;
                 repaint();
+                System.out.println(count);
             }
         });
 
@@ -143,7 +146,7 @@ public class Level2Quiz extends JPanel {
         qs.add(new Question(q, qx, qy, qf, o, ox, oy, of, a));
 
 
-        q = "Middle schoolers may have the hardest time with anxiety because…";
+        q = "Middle schoolers may have the hardest time with anxiety becauseâ€¦";
         qx = 65;
         qy = 80;
         qf = 16;
@@ -228,15 +231,16 @@ public class Level2Quiz extends JPanel {
 
         /**
          * Constructs a question
-         * @param q the question
+         *
+         * @param q  the question
          * @param qx question x-coordinate
          * @param qy question y-coordinate
          * @param qf question font size
-         * @param o the options
+         * @param o  the options
          * @param ox options' x-coordinates
          * @param oy options' y-coordinates
          * @param of options' font sizes
-         * @param a answer index
+         * @param a  answer index
          */
         public Question(String q, int qx, int qy, int qf, String[] o, int[] ox, int[] oy, int[] of, int a) {
             question = q;
@@ -271,9 +275,7 @@ public class Level2Quiz extends JPanel {
         g.setFont(new Font("Courier", Font.BOLD, 13));
 
         if (count == -1) {
-            g.drawString("Now, before you choose your three favourite tools,", 200, 58);
-            g.drawString("I will quiz you to make sure you understood everything I explained in Level 1.", 93, 80);
-            g.drawString("You'll have to get 5/5 to move on, but you can retry as many times as needed.", 96, 102);
+            g.drawString("You'll have to get 5/5 to move on, but you can retry as many times as needed.", 96, 80);
             g.drawImage(ps, 410, 200, this);
         } else if (count < qs.size()) {
             g.drawImage(bg, 0, 0, this);
@@ -323,7 +325,8 @@ public class Level2Quiz extends JPanel {
 
         g.setFont(new Font("Courier", Font.BOLD, 15));
         if (count == qs.size() && !allAnswersCorrect()) {
-            g.drawString("Great try, but let's try one more time and make sure we get them all right!", 58, 80);
+            g.drawString("Great try, but let's try one more time and make sure we get them all right!", 60, 65);
+            g.drawString("Press space to try again.", 280, 100);
             count = -1;
             correctOrNot = new boolean[5];
             g.drawImage(ps, 410, 200, this);
@@ -331,13 +334,13 @@ public class Level2Quiz extends JPanel {
             g.drawString("Amazing job! Looks you know your stuff, little sibling.", 160, 65);
             g.drawString("Let's start fighting those monsters!", 225, 100);
             g.drawImage(ps, 410, 200, this);
-            end = true;
         }
         optionChosen = -1;
     }
 
     /**
      * Checks if all the answers are correct
+     *
      * @return true if all values in correctOrNot[] are true, false otherwise
      */
     private boolean allAnswersCorrect() {
@@ -350,6 +353,7 @@ public class Level2Quiz extends JPanel {
 
     /**
      * Checks if the level is over
+     *
      * @return if the level is over as a boolean
      */
     public boolean isEnd() {
