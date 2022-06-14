@@ -30,7 +30,7 @@ public class SplashScreen extends JPanel implements ActionListener {
     /**
      * speed and stating x for animation
      */
-    int x = 800, speed = 25;
+    int x = 0, speed = 25;
 
 
     /**
@@ -40,7 +40,7 @@ public class SplashScreen extends JPanel implements ActionListener {
      * @Override
      */
     public void actionPerformed(ActionEvent arg) {
-        if (x > -100) x -= speed;
+        if (x <900) x += speed;
         else a = true;
         repaint();
     }
@@ -67,14 +67,11 @@ public class SplashScreen extends JPanel implements ActionListener {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Color backgroundColour = new Color(159, 204, 222);
-        setBackground(backgroundColour);
-        g.setColor(new Color(133, 189, 92));
-        g.fillRect(0, 400, 800, 100);
-        g.drawImage(Main.imageFromFile("adverbNobackground.png").getScaledInstance(100, -1, Image.SCALE_DEFAULT), x, 360, this);
-        tm.start();
+        g.drawImage(Main.imageFromFile("loadingscreen.jpg"), 0, 0, null);
+        g.drawImage(Main.imageFromFile("adverbNobackground - Copy.png").getScaledInstance(100, -1, Image.SCALE_DEFAULT), x, 360, this);
         g.setColor(Color.ORANGE);
-        g.fillOval(700, -50, 200, 200);
+        g.fillOval(-100, -100, 150, 150);
+        tm.start();
 
     }
 

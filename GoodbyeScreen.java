@@ -63,20 +63,22 @@ public class GoodbyeScreen extends JPanel implements ActionListener {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Color backgroundColour = new Color(159, 204, 222);
-        setBackground(backgroundColour);
-        g.setColor(new Color(133, 189, 92));
-        g.fillRect(0, 400, 800, 100);
+        g.drawImage(Main.imageFromFile("loadingscreen.jpg"), 0, 0, null);
         g.drawImage(Main.imageFromFile("adverbNobackground.png").getScaledInstance(100, -1, Image.SCALE_DEFAULT), x, 360, this);
-        g.setColor(Color.BLACK);
-        g.setFont(new Font("Courier", Font.BOLD, 20));
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Courier", Font.BOLD, 25));
         g.drawString("Goodbye! Thanks for playing Defeating Dread!", 30, 100);
         g.drawString("Programmed and drawn by Danya, Mya, and Sulagna", 30, 130);
-        g.drawString("(Adversity Aardvarks)", 30, 160);
+        g.setFont(new Font("Courier", Font.ITALIC, 20));
+        g.drawString("Adversity Aardvarks", 30, 210);
+        g.setFont(new Font("Courier", Font.PLAIN, 15 ));
+        g.drawString("This has been an", 30, 190);
+        g.drawString("project", 30, 230);
+        g.setColor(Color.ORANGE);
+        g.fillOval(-100, -100, 150, 150);
 
         tm.start();
-        g.setColor(Color.ORANGE);
-        g.fillOval(700, -50, 200, 200);
+
 
     }
 
