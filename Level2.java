@@ -1,3 +1,9 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
@@ -7,7 +13,7 @@
  * Version #1 May 16 - May 20 - [0.5 hrs]:
  * Mya - created preliminary Level2 class with some methods
  * Does not draw anything
- * Calls Tools(String, String, String, int), Monster(int, int), and Talk(ArrayList <String>)
+ * Calls Tools(String, String, String, int), Monster(int, int), and Talk(ArrayList String)
  * <p>
  * Version #2 May 20 - May 27 - [5 hrs]:
  * Mya - add in some text
@@ -21,14 +27,6 @@
  * Mya - tools can be selected with the mouse
  * Text is shown and the user is able to choose to equip
  */
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-
 
 public class Level2 extends JPanel {
     /**
@@ -66,10 +64,14 @@ public class Level2 extends JPanel {
      */
     private final Point buttonDimensions = new Point(70, 30);
     /**
-     * Locations for the yes/no buttons
+     * Locations for the yes buttons
      * The no button will be set to the right of the yes button
      */
     private Point yesButton = new Point(100, 100);
+    /**
+     * Locations for the no buttons
+     * The no button will be set to the right of the yes button
+     */
     private Point noButton = new Point(yesButton.x + buttonDimensions.x + 5, 100);
     
 
@@ -337,7 +339,8 @@ public class Level2 extends JPanel {
     }
 
     /**
-     * @return chosenTools
+     * returns the chosen tools
+     * @return chosenTools as an ArrayList of Tool
      */
     public ArrayList<Tool> returnChosenTools() {
         return chosenTools;

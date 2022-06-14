@@ -1,3 +1,8 @@
+import java.util.*;
+import java.io.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
@@ -13,13 +18,6 @@
  * Version #3 June 3-10
  * Mya - added in backgrounds and logo
  */
-
-import java.util.*;
-import java.io.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-
 public class Menu extends JPanel {
     /**
      * the user's choice

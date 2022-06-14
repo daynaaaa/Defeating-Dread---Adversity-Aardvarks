@@ -1,3 +1,10 @@
+import java.util.*;
+import java.io.*;
+import javax.swing.*;
+import javax.imageio.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
@@ -13,15 +20,6 @@
  * Version #3 June 6 - June 10 - [5 hrs]:
  *    Danya - fixed bugs in fighting the monster, such as pressing space to continue
  */
-
-import java.util.*;
-import java.io.*;
-import javax.swing.*;
-import javax.imageio.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
-
 public class Level3 extends JPanel{
     /**
      * monster
@@ -55,11 +53,11 @@ public class Level3 extends JPanel{
     private int monNum;
     /** Image of the player*/
     private Image player;
-    /* The health of the monster*/
+    /** The health of the monster*/
     private int health;
-    /*Array of the fileNames of the monsters*/
+    /**Array of the fileNames of the monsters*/
     private String[] monsters;
-    /* Amount of Monsters*/
+    /** Amount of Monsters*/
     private final int numMon;
     /**
      * constructor
@@ -201,7 +199,7 @@ public class Level3 extends JPanel{
                g.drawString("way out of this forest, but watch out for the monsters!", 20, 100);
                break;
             case 3:
-               g.drawString("Good luck! I won’t be able to help you anymore, but I believe", 20, 70);
+               g.drawString("Good luck! I won't be able to help you anymore, but I believe", 20, 70);
                g.drawString("in you! Click on each tool to use them on the monsters.", 20, 100);
                break;
             case 4:

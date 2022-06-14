@@ -1,3 +1,7 @@
+import java.io.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
@@ -11,12 +15,6 @@
  * Version #3 May 27 - June 3 - [0.5 hrs]:
  * Mya - fixed final animation and stylistic changes
  */
-
-import java.io.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-
 public class SplashScreen extends JPanel implements ActionListener {
     /**
      * if the splash screen is over
@@ -36,9 +34,9 @@ public class SplashScreen extends JPanel implements ActionListener {
     /**
      * animates the square/aardvark
      *
-     * @param arg
-     * @Override
+     * @param arg action event
      */
+    @Override
     public void actionPerformed(ActionEvent arg) {
         if (x <900) x += speed;
         else a = true;

@@ -1,3 +1,7 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
@@ -9,12 +13,6 @@
  * Version #2 June 3-10 [15 minutes]
  * Mya - Final touch-ups
  */
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 public class ConnectingScreen extends JPanel {
     /**
      * whether the user has made a choice or not

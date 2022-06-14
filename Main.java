@@ -1,3 +1,11 @@
+import java.util.*;
+import java.io.*;
+import javax.swing.*;
+import javax.imageio.*;
+import java.net.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
@@ -12,17 +20,8 @@
  *    fix problem with while loop
  * Version #3 June 2 - [1 hrs]:
  *    Danya - added level 2 and 3
- *    
+ *
  */
-import java.util.*;
-import java.io.*;
-import javax.swing.*;
-import javax.imageio.*;
-import java.net.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
-
 public class Main extends JPanel {
     /**the user's choice*/
     public static int c;
@@ -62,6 +61,8 @@ public class Main extends JPanel {
     }
     /**
      * Run the game
+     *
+     * @param args is the parameter for the main method
      */
     public static void main(String[] args) {
 

@@ -1,3 +1,7 @@
+import java.io.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
@@ -7,11 +11,6 @@
  * Version #1 June 10 - [15 mins]:
  * Danya - framework
  */
-
-import java.io.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 
 public class GoodbyeScreen extends JPanel implements ActionListener {
     /**
@@ -32,9 +31,9 @@ public class GoodbyeScreen extends JPanel implements ActionListener {
     /**
      * animates the square/aardvark
      *
-     * @param arg
-     * @Override
+     * @param arg action event
      */
+    @Override
     public void actionPerformed(ActionEvent arg) {
         if (x > -100) x -= speed;
         else a = true;

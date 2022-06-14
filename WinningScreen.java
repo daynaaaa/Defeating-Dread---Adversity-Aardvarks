@@ -1,3 +1,7 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
@@ -7,12 +11,6 @@
  * Version #1 June 9 - [1 hr]:
  * Danya - framework
  */
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 public class WinningScreen extends JPanel {
     /**whether the user has made a choice or not*/
     private volatile boolean isChosen;

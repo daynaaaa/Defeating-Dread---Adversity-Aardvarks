@@ -1,3 +1,9 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
@@ -12,14 +18,6 @@
  * Version #2 June 3 -10- [2.5 hrs]:
  * Mya - update menu with user information for submission
  */
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-
 public class Instructions extends JPanel {
     /**
      * if the back button is pressed
@@ -38,12 +36,24 @@ public class Instructions extends JPanel {
      */
     private int countinst = 0;
     /**
-     * holds the instructions/user manual
+     * holds the instructions/user manual for menu
      */
     ArrayList<String> instructionsmenu = new ArrayList<>();
+    /**
+     * holds the instructions/user manual for level 1
+     */
     ArrayList<String> instructionslvl1= new ArrayList<>();
+    /**
+     * holds the instructions/user manual for level 2
+     */
     ArrayList<String> instructionslvl2 = new ArrayList<>();
+    /**
+     * holds the instructions/user manual for level 3
+     */
     ArrayList<String> instructionslvl3 = new ArrayList<>();
+    /**
+     * holds the instructions/user manual for end screen
+     */
     ArrayList<String> instructionsend = new ArrayList<>();
 
 

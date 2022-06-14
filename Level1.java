@@ -1,3 +1,7 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
@@ -14,12 +18,6 @@
  * Final (#4) June 6 - June 10
  * Sulagna - fixed the graphics, finished the logic and input
  */
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-
 public class Level1 extends JPanel {
 
     /**

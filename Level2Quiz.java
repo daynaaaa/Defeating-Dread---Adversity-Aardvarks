@@ -1,22 +1,18 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
  * Date: June 10, 2022
  * Desc: "Level2Quiz" class that will run the quiz in Level 2 when called
- * <p>
- * <p>
  * Version #3 May 30 - June 3 [5 hrs]
  * Sulagna - Did some of the logic, input, and graphics for this quiz
  * <p>
  * Final (#4) June 6 - June 10 [7 hrs]
  * Sulagna - Worked on cleaning up the graphics, changed the input from mouse to keyboard, and debugging
  */
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-
 public class Level2Quiz extends JPanel {
     /**
      * Holds all five questions; Question objects hold details about the question

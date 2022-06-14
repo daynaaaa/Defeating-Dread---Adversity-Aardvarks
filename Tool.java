@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.util.ArrayList;
-
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
@@ -32,11 +31,14 @@ public class Tool {
 
 
     /**
-     * constructor with parameters
+     * constructor with parameters for tool
      *
-     * @param i info string
-     * @param t task string
-     * @param d damage int
+     * @param n name of tool as String
+     * @param i information about tool as String
+     * @param t task associated with tool as ArrayList
+     * @param d damage as an int
+     * @param fn filename for the image as a String
+     * @param l location on the screen as a Point
      */
     public Tool(String n, String i, ArrayList t, int d, String fn, Point l) {
         name = n;
@@ -113,10 +115,20 @@ public class Tool {
         return damage;
     }
 
+    /**
+     * gets the x size
+     *
+     * @return xSize as an int
+     */
     public int getxSize() {
         return xSize;
     }
 
+    /**
+     * gets the y size
+     *
+     * @return ySize as an int
+     */
     public int getySize() {
         return ySize;
     }

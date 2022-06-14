@@ -1,3 +1,10 @@
+import java.util.*;
+import java.io.*;
+import javax.swing.*;
+import javax.imageio.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
 /**
  * Authors: Danya C, Mya E, Sulagna N
  * Teacher: Ms. Krasteva
@@ -9,15 +16,6 @@
  * Version #2 June 6 - [1 hrs]:
  * Danya - change some parameters for functionality purposes
  */
-
-import java.util.*;
-import java.io.*;
-import javax.swing.*;
-import javax.imageio.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
-
 public class Monster {
     /**
      * starting health
@@ -38,6 +36,7 @@ public class Monster {
     }
 
     /**get Monster image
+     *
      *@return image of monster
      */
     public Image getImage() {
@@ -47,13 +46,15 @@ public class Monster {
     /**
      * decrement health when fighting
      *
-     * @param amt
+     * @param amt amount of damage as an int
      */
     public void decrease(int amt) {
         health -= amt;
     }
 
     /**
+     * returns the health
+     *
      * @return health
      */
     public int getHealth() {
@@ -70,6 +71,8 @@ public class Monster {
     }
 
     /**
+     * checks if monster has been defeated
+     *
      * @return true if the monster is defeated
      */
     public boolean isDefeated() {
